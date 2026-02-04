@@ -1,0 +1,44 @@
+name: "\u2728 Feature Request"
+description: Proposer une nouvelle feature pour une app existante
+title: "[FEATURE] "
+labels: ["feature", "backlog"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App
+      description: Pour quelle app?
+      placeholder: "Ex: CreditCopilot"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description de la feature
+      description: Qu'est-ce que tu aimerais ajouter?
+    validations:
+      required: true
+
+  - type: textarea
+    id: pourquoi
+    attributes:
+      label: Pourquoi?
+      description: Quel problème ça résout pour l'utilisateur?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priorite
+    attributes:
+      label: Priorité suggérée
+      options:
+        - "\U0001F534 Haute — Les utilisateurs en ont besoin maintenant"
+        - "\U0001F7E1 Moyenne — Important mais pas urgent"
+        - "\U0001F7E2 Basse — Nice to have"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / Mockups / Références
+      description: Screenshots d'autres apps, sketches, liens utiles

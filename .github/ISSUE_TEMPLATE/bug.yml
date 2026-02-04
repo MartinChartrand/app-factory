@@ -1,0 +1,61 @@
+name: "\U0001F41B Bug Report"
+description: Rapporter un bug trouvé pendant le testing
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App
+      description: Quelle app?
+      placeholder: "Ex: CreditCopilot"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version / Build
+      description: Numéro de version ou build TestFlight
+      placeholder: "Ex: 1.0 (build 23)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description du bug
+      description: Qu'est-ce qui se passe?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Étapes pour reproduire
+      description: Comment reproduire le bug?
+      placeholder: |
+        1. Ouvrir l'app
+        2. Aller dans...
+        3. Tapper sur...
+        4. Le bug apparaît
+    validations:
+      required: true
+
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Comportement attendu
+      description: Qu'est-ce qui aurait dû se passer?
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Vidéo
+      description: Drag and drop tes captures ici
+
+  - type: input
+    id: device
+    attributes:
+      label: Appareil
+      placeholder: "Ex: iPhone 15 Pro, iOS 18.2"

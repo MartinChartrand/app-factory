@@ -1,0 +1,78 @@
+name: "\U0001F4A1 Nouvelle idée d'app"
+description: Proposer une nouvelle idée de micro-app iOS
+title: "[IDÉE] "
+labels: ["idée", "évaluation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Nouvelle idée d'app
+        Remplir au minimum les 4 premiers champs. Le reste peut venir plus tard.
+
+  - type: textarea
+    id: probleme
+    attributes:
+      label: "\U0001F3AF Le problème"
+      description: Quel problème concret cette app résout?
+      placeholder: "Ex: Les gens qui ont eu des problèmes de crédit ne savent pas par où commencer pour rebâtir leur score."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "\U0001F4A1 La solution"
+      description: Comment l'app résout ce problème?
+      placeholder: "Ex: Un guide étape par étape avec suivi des progrès et notifications de rappel."
+    validations:
+      required: true
+
+  - type: textarea
+    id: utilisateur
+    attributes:
+      label: "\U0001F464 Pour qui?"
+      description: Qui utiliserait cette app? Sois le plus spécifique possible.
+      placeholder: "Ex: Canadiens 25-45 ans qui ont fait une proposition de consommateur."
+    validations:
+      required: true
+
+  - type: textarea
+    id: revenus
+    attributes:
+      label: "\U0001F4B0 Comment ça fait de l'argent?"
+      description: Freemium? Abonnement? Achat unique?
+      placeholder: "Ex: Gratuit avec features premium à 4.99$/mois"
+    validations:
+      required: true
+
+  - type: textarea
+    id: competition
+    attributes:
+      label: "\U0001F3DF\uFE0F Ce qui existe déjà"
+      description: Apps ou solutions similaires sur le marché
+      placeholder: "Ex: Credit Karma (gratuit, US-focused), Borrowell (Canada)"
+
+  - type: textarea
+    id: avantage
+    attributes:
+      label: "\U0001F680 Notre avantage"
+      description: Pourquoi on serait meilleurs ou différents?
+      placeholder: "Ex: Focus 100% canadien, approche empathique"
+
+  - type: dropdown
+    id: gut
+    attributes:
+      label: "\U0001F525 Gut feeling"
+      description: Ton instinct sur cette idée
+      options:
+        - "10 — Chef-d'oeuvre, on part demain"
+        - "8-9 — Très solide"
+        - "6-7 — Intéressant, à creuser"
+        - "4-5 — Bof, mais pourquoi pas"
+        - "1-3 — Long shot"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "\U0001F4DD Notes additionnelles"
+      description: Screenshots, liens, inspirations, n'importe quoi d'utile
