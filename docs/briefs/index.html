@@ -192,79 +192,59 @@
   <p class="sd">Le pipeline complet tel qu'il existe. Le point rouge marque le trou qu'on va combler.</p>
 
   <div class="dframe">
-    <svg viewBox="0 0 640 440" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 720 820" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="16" cy="16" r=".4" fill="#ddd8d0"/></pattern>
-        <marker id="a1" viewBox="0 0 8 6" refX="8" refY="3" markerWidth="6" markerHeight="5" orient="auto"><path d="M0 0L8 3L0 6z" fill="#ccc5ba"/></marker>
-        <marker id="a2" viewBox="0 0 8 6" refX="8" refY="3" markerWidth="6" markerHeight="5" orient="auto"><path d="M0 0L8 3L0 6z" fill="#6b4fa0"/></marker>
+        <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r=".5" fill="#e2ddd4"/></pattern>
       </defs>
-      <rect width="640" height="440" fill="url(#g)"/>
+      <rect width="720" height="820" fill="url(#g)"/>
 
-      <!-- Row 1: left to right -->
-      <circle cx="80" cy="70" r="22" fill="#f8f6f1" stroke="#c85a24" stroke-width="1.5"/>
-      <text x="80" y="67" text-anchor="middle" fill="#c85a24" font-family="Inter" font-size="6" font-weight="500" letter-spacing=".1em">SEB</text>
-      <text x="80" y="78" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="9" font-weight="500">Astro</text>
+      <!-- Vertical flow, one node per row, generous spacing -->
 
-      <line x1="102" y1="70" x2="148" y2="70" stroke="#ccc5ba" stroke-width="1" marker-end="url(#a1)"/>
+      <!-- NODE 1: Astro -->
+      <text x="360" y="55" text-anchor="middle" fill="#c85a24" font-family="Caveat" font-size="14">seb</text>
+      <text x="360" y="88" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="24" font-weight="400">Astro</text>
+      <text x="360" y="115" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="16">découverte de niches &amp; keywords</text>
+      <!-- hand-drawn connector -->
+      <path d="M360 130 C362 148, 358 158, 360 175" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="354,172 360,182 366,172" fill="#ccc5ba"/>
 
-      <circle cx="180" cy="70" r="22" fill="#f8f6f1" stroke="#9b958e" stroke-width="1.5"/>
-      <text x="180" y="67" text-anchor="middle" fill="#9b958e" font-family="Inter" font-size="5.5" font-weight="500" letter-spacing=".1em">ENSEMBLE</text>
-      <text x="180" y="78" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="8" font-weight="500">Validator</text>
+      <!-- NODE 2: AppValidator -->
+      <text x="360" y="208" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="14">ensemble</text>
+      <text x="360" y="240" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="24" font-weight="400">AppValidator</text>
+      <text x="360" y="267" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="16">go ou kill ?</text>
+      <path d="M360 282 C358 300, 362 310, 360 328" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="354,325 360,335 366,325" fill="#ccc5ba"/>
 
-      <line x1="202" y1="70" x2="248" y2="70" stroke="#ccc5ba" stroke-width="1" marker-end="url(#a1)"/>
+      <!-- NODE 3: Cross-validation -->
+      <text x="360" y="358" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="14">automatisé</text>
+      <text x="360" y="390" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="24" font-weight="400">Cross-validation</text>
+      <text x="360" y="417" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="16">personas IA — stress-test, débat</text>
+      <path d="M360 432 C362 450, 358 460, 360 478" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="354,475 360,485 366,475" fill="#ccc5ba"/>
 
-      <circle cx="280" cy="70" r="22" fill="#9b958e" stroke="#9b958e" stroke-width="1.5"/>
-      <text x="280" y="67" text-anchor="middle" fill="#f8f6f1" font-family="Inter" font-size="5" font-weight="500" letter-spacing=".1em">AUTO</text>
-      <text x="280" y="78" text-anchor="middle" fill="#f8f6f1" font-family="Newsreader" font-size="8" font-weight="500">Personas</text>
-
-      <line x1="302" y1="70" x2="348" y2="70" stroke="#ccc5ba" stroke-width="1" marker-end="url(#a1)"/>
-
-      <circle cx="380" cy="70" r="22" fill="#f8f6f1" stroke="#2a7a6e" stroke-width="1.5"/>
-      <text x="380" y="67" text-anchor="middle" fill="#2a7a6e" font-family="Inter" font-size="6" font-weight="500" letter-spacing=".1em">MARTIN</text>
-      <text x="380" y="78" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="8" font-weight="500">Xcode</text>
-
-      <line x1="402" y1="70" x2="448" y2="70" stroke="#ccc5ba" stroke-width="1" marker-end="url(#a1)"/>
-
-      <circle cx="480" cy="70" r="22" fill="#f8f6f1" stroke="#9b958e" stroke-width="1.5"/>
-      <text x="480" y="67" text-anchor="middle" fill="#9b958e" font-family="Inter" font-size="5.5" font-weight="500" letter-spacing=".1em">ENSEMBLE</text>
-      <text x="480" y="78" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="8" font-weight="500">Beta</text>
-
-      <!-- Row 1 to Row 2 curve -->
-      <path d="M502 70 C540 70, 570 100, 560 140 C550 170, 520 180, 480 180" stroke="#ccc5ba" stroke-width="1" fill="none" marker-end="url(#a1)"/>
-
-      <!-- Row 2: right to left -->
-      <circle cx="460" cy="180" r="22" fill="#9b958e" stroke="#9b958e" stroke-width="1.5"/>
-      <text x="460" y="177" text-anchor="middle" fill="#f8f6f1" font-family="Inter" font-size="5" font-weight="500" letter-spacing=".1em">AUTO</text>
-      <text x="460" y="188" text-anchor="middle" fill="#f8f6f1" font-family="Newsreader" font-size="7" font-weight="500">/submit</text>
-
-      <line x1="438" y1="180" x2="372" y2="180" stroke="#ccc5ba" stroke-width="1" marker-end="url(#a1)"/>
-
-      <circle cx="350" cy="180" r="22" fill="#9b958e" stroke="#9b958e" stroke-width="1.5"/>
-      <text x="350" y="177" text-anchor="middle" fill="#f8f6f1" font-family="Inter" font-size="5" font-weight="500" letter-spacing=".1em">AUTO</text>
-      <text x="350" y="188" text-anchor="middle" fill="#f8f6f1" font-family="Newsreader" font-size="7" font-weight="500">/deploy</text>
-
-      <!-- Dashed line to gap -->
-      <path d="M328 180 C280 180, 240 200, 240 250" stroke="#c83a3a" stroke-width="1" stroke-dasharray="4,4" fill="none"/>
+      <!-- NODE 4: Xcode -->
+      <text x="360" y="508" text-anchor="middle" fill="#2a7a6e" font-family="Caveat" font-size="14">martin</text>
+      <text x="360" y="540" text-anchor="middle" fill="#1a1a1a" font-family="Newsreader" font-size="24" font-weight="400">Xcode + Claude Agent</text>
+      <text x="360" y="567" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="16">vibe coding → TestFlight → /deploy</text>
+      <path d="M360 582 C358 600, 362 610, 360 628" stroke="#c83a3a" stroke-width="1" stroke-dasharray="6,4" fill="none"/>
+      <polygon points="354,625 360,635 366,625" fill="#c83a3a"/>
 
       <!-- Annotation -->
-      <text x="178" y="230" fill="#c83a3a" font-family="Caveat" font-size="13" font-weight="500">← on est ici</text>
+      <text x="440" y="612" fill="#c83a3a" font-family="Caveat" font-size="18">← on est ici</text>
 
       <!-- GAP NODE -->
-      <rect x="160" y="260" width="180" height="50" rx="25" fill="none" stroke="#c83a3a" stroke-width="1.5" stroke-dasharray="4,3"/>
-      <text x="250" y="282" text-anchor="middle" fill="#c83a3a" font-family="Newsreader" font-size="12" font-weight="500" font-style="italic">Post-launch ?</text>
-      <text x="250" y="298" text-anchor="middle" fill="#c83a3a" font-family="Inter" font-size="7" letter-spacing=".15em">LE TROU</text>
+      <path d="M220 650 C220 640, 230 635, 250 635 L470 635 C490 635, 500 640, 500 650 L500 690 C500 700, 490 705, 470 705 L250 705 C230 705, 220 700, 220 690 Z" fill="none" stroke="#c83a3a" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="360" y="668" text-anchor="middle" fill="#c83a3a" font-family="Newsreader" font-size="22" font-weight="400" font-style="italic">Post-launch marketing ?</text>
+      <text x="360" y="694" text-anchor="middle" fill="#c83a3a" font-family="Caveat" font-size="16">le trou dans notre pipeline</text>
 
       <!-- Arrow to Cowork -->
-      <line x1="340" y1="285" x2="410" y2="285" stroke="#6b4fa0" stroke-width="1.5" marker-end="url(#a2)"/>
+      <path d="M360 710 C358 725, 362 732, 360 745" stroke="#6b4fa0" stroke-width="1.5" fill="none"/>
+      <polygon points="354,742 360,752 366,742" fill="#6b4fa0"/>
 
       <!-- COWORK NODE -->
-      <rect x="420" y="260" width="140" height="50" rx="25" fill="rgba(107,79,160,.06)" stroke="#6b4fa0" stroke-width="2"/>
-      <text x="490" y="282" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="14" font-weight="500">Cowork</text>
-      <text x="490" y="298" text-anchor="middle" fill="#6b4fa0" font-family="Inter" font-size="7" font-weight="500" letter-spacing=".15em">TON RÔLE</text>
-
-      <!-- Feedback loop -->
-      <path d="M490 310 C490 370, 400 400, 250 400 C120 400, 60 350, 60 280 C60 220, 60 120, 80 95" stroke="#ddd8d0" stroke-width=".75" stroke-dasharray="3,4" fill="none"/>
-      <text x="280" y="418" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="11">les données post-launch alimentent la prochaine idée</text>
+      <path d="M230 758 C230 748, 240 743, 260 743 L460 743 C480 743, 490 748, 490 758 L490 798 C490 808, 480 813, 460 813 L260 813 C240 813, 230 808, 230 798 Z" fill="rgba(107,79,160,.05)" stroke="#6b4fa0" stroke-width="2"/>
+      <text x="360" y="778" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="26" font-weight="500">Cowork</text>
+      <text x="360" y="803" text-anchor="middle" fill="#6b4fa0" font-family="Caveat" font-size="16">ton rôle, Seb</text>
     </svg>
     <div class="dcap">le pipeline App Factory — de l'idée au launch et au-delà</div>
   </div>
@@ -278,31 +258,39 @@
   <p class="sd">Martin = technique. Toi = marché et contenu. Cowork = ton bras droit.</p>
 
   <div class="dframe">
-    <svg viewBox="0 0 640 310" xmlns="http://www.w3.org/2000/svg">
-      <rect width="640" height="310" fill="url(#g)"/>
+    <svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg">
+      <rect width="720" height="520" fill="url(#g)"/>
 
-      <circle cx="210" cy="155" r="105" fill="rgba(200,90,36,.03)" stroke="#c85a24" stroke-width="1"/>
-      <text x="140" y="115" fill="#c85a24" font-family="Newsreader" font-size="18" font-weight="400">Seb</text>
-      <text x="120" y="137" fill="#6b6560" font-family="Inter" font-size="9" font-weight="300">Idées · Marché</text>
-      <text x="120" y="153" fill="#6b6560" font-family="Inter" font-size="9" font-weight="300">Beta testing</text>
-      <text x="120" y="169" fill="#6b6560" font-family="Inter" font-size="9" font-weight="300">Contenu · Growth</text>
-      <text x="105" y="240" fill="#9b958e" font-family="Caveat" font-size="11">Astro · AppValidator · Supernote</text>
+      <!-- Seb circle - slightly wobbly path -->
+      <ellipse cx="250" cy="235" rx="170" ry="165" fill="rgba(200,90,36,.03)" stroke="#c85a24" stroke-width="1.2"/>
+      <text x="145" y="175" fill="#c85a24" font-family="Newsreader" font-size="28" font-weight="400">Seb</text>
+      <text x="120" y="210" fill="#6b6560" font-family="Inter" font-size="15" font-weight="300">Idées · Marché</text>
+      <text x="120" y="235" fill="#6b6560" font-family="Inter" font-size="15" font-weight="300">Beta testing</text>
+      <text x="120" y="260" fill="#6b6560" font-family="Inter" font-size="15" font-weight="300">Contenu · Growth</text>
 
-      <circle cx="430" cy="155" r="105" fill="rgba(42,122,110,.03)" stroke="#2a7a6e" stroke-width="1"/>
-      <text x="440" y="115" fill="#2a7a6e" font-family="Newsreader" font-size="18" font-weight="400">Martin</text>
-      <text x="435" y="137" fill="#6b6560" font-family="Inter" font-size="9" font-weight="300">Code · Architecture</text>
-      <text x="435" y="153" fill="#6b6560" font-family="Inter" font-size="9" font-weight="300">Build · Deploy</text>
-      <text x="435" y="169" fill="#6b6560" font-family="Inter" font-size="9" font-weight="300">Skills Claude Code</text>
-      <text x="435" y="240" fill="#9b958e" font-family="Caveat" font-size="11">Xcode · Claude Agent · GitHub</text>
+      <text x="130" y="370" fill="#9b958e" font-family="Caveat" font-size="16">Astro · AppValidator</text>
+      <text x="130" y="392" fill="#9b958e" font-family="Caveat" font-size="16">Supernote · WhatsApp</text>
 
-      <circle cx="320" cy="155" r="72" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1.5"/>
-      <text x="320" y="140" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="16" font-weight="400">Cowork</text>
-      <text x="320" y="158" text-anchor="middle" fill="#6b6560" font-family="Inter" font-size="8" font-weight="300">ASO · Contenu</text>
-      <text x="320" y="172" text-anchor="middle" fill="#6b6560" font-family="Inter" font-size="8" font-weight="300">Reviews · Launch</text>
-      <text x="320" y="186" text-anchor="middle" fill="#6b6560" font-family="Inter" font-size="8" font-weight="300">Rapports</text>
+      <!-- Martin circle -->
+      <ellipse cx="470" cy="235" rx="170" ry="165" fill="rgba(42,122,110,.03)" stroke="#2a7a6e" stroke-width="1.2"/>
+      <text x="490" y="175" fill="#2a7a6e" font-family="Newsreader" font-size="28" font-weight="400">Martin</text>
+      <text x="480" y="210" fill="#6b6560" font-family="Inter" font-size="15" font-weight="300">Code · Architecture</text>
+      <text x="480" y="235" fill="#6b6560" font-family="Inter" font-size="15" font-weight="300">Build · Deploy</text>
+      <text x="480" y="260" fill="#6b6560" font-family="Inter" font-size="15" font-weight="300">Skills Claude Code</text>
 
-      <path d="M225 70 Q320 25 415 70" stroke="#ddd8d0" stroke-width=".75" stroke-dasharray="3,3" fill="none"/>
-      <text x="320" y="42" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="11">WhatsApp + email</text>
+      <text x="480" y="370" fill="#9b958e" font-family="Caveat" font-size="16">Xcode · Claude Agent</text>
+      <text x="480" y="392" fill="#9b958e" font-family="Caveat" font-size="16">fastlane · GitHub</text>
+
+      <!-- Cowork circle (center, overlapping) -->
+      <circle cx="360" cy="235" r="110" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1.5"/>
+      <text x="360" y="210" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="24" font-weight="400">Cowork</text>
+      <text x="360" y="238" text-anchor="middle" fill="#6b6560" font-family="Inter" font-size="13" font-weight="300">ASO · Contenu</text>
+      <text x="360" y="258" text-anchor="middle" fill="#6b6560" font-family="Inter" font-size="13" font-weight="300">Reviews · Launch</text>
+      <text x="360" y="278" text-anchor="middle" fill="#6b6560" font-family="Inter" font-size="13" font-weight="300">Rapports</text>
+
+      <!-- WhatsApp arc -->
+      <path d="M270 85 Q360 35 450 85" stroke="#ddd8d0" stroke-width=".75" stroke-dasharray="4,4" fill="none"/>
+      <text x="360" y="55" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="16">WhatsApp + email</text>
     </svg>
     <div class="dcap">Seb utilise Cowork — Martin utilise Claude Code — la zone commune c'est le produit</div>
   </div>
@@ -316,53 +304,59 @@
   <p class="sd">Après la publication, le travail continue. Chaque tour améliore l'app.</p>
 
   <div class="dframe">
-    <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg">
-      <rect width="640" height="420" fill="url(#g)"/>
+    <svg viewBox="0 0 720 680" xmlns="http://www.w3.org/2000/svg">
+      <rect width="720" height="680" fill="url(#g)"/>
 
-      <circle cx="320" cy="210" r="140" fill="none" stroke="#eae6de" stroke-width=".5"/>
+      <!-- Large circle guide -->
+      <circle cx="360" cy="320" r="210" fill="none" stroke="#eae6de" stroke-width=".75"/>
 
-      <!-- Flow arrows -->
-      <path d="M358 78 Q425 82 450 115" stroke="#ccc5ba" stroke-width="1" fill="none"/>
-      <path d="M472 168 Q485 215 465 270" stroke="#ccc5ba" stroke-width="1" fill="none"/>
-      <path d="M435 325 Q385 355 330 350" stroke="#ccc5ba" stroke-width="1" fill="none"/>
-      <path d="M275 345 Q215 330 185 285" stroke="#ccc5ba" stroke-width="1" fill="none"/>
-      <path d="M170 230 Q155 175 180 130" stroke="#ccc5ba" stroke-width="1" fill="none"/>
-      <path d="M210 90 Q260 72 305 75" stroke="#ccc5ba" stroke-width="1" fill="none"/>
-
-      <!-- Direction indicators -->
-      <polygon points="450,115 443,109 447,120" fill="#ccc5ba"/>
-      <polygon points="465,270 458,264 462,275" fill="#ccc5ba"/>
-      <polygon points="330,350 336,343 334,354" fill="#ccc5ba"/>
-      <polygon points="185,285 192,279 189,290" fill="#ccc5ba"/>
-      <polygon points="180,130 187,136 183,126" fill="#ccc5ba"/>
-      <polygon points="305,75 299,82 303,71" fill="#ccc5ba"/>
+      <!-- Curved flow arrows -->
+      <path d="M410 120 Q500 135 520 190" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="515,187 523,197 526,185" fill="#ccc5ba"/>
+      <path d="M545 280 Q555 350 530 420" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="525,417 533,427 536,415" fill="#ccc5ba"/>
+      <path d="M490 495 Q430 535 375 530" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="378,524 370,534 382,535" fill="#ccc5ba"/>
+      <path d="M310 520 Q240 500 200 440" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="205,443 195,435 198,448" fill="#ccc5ba"/>
+      <path d="M185 355 Q170 285 195 220" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="190,223 198,213 201,225" fill="#ccc5ba"/>
+      <path d="M235 155 Q295 125 345 125" stroke="#ccc5ba" stroke-width="1" fill="none"/>
+      <polygon points="342,119 352,125 342,131" fill="#ccc5ba"/>
 
       <!-- Nodes -->
-      <rect x="280" y="55" width="78" height="38" rx="19" fill="#f8f6f1" stroke="#2a7a6e" stroke-width="1.5"/>
-      <text x="319" y="79" text-anchor="middle" fill="#2a7a6e" font-family="Newsreader" font-size="12" font-weight="500">App live</text>
+      <rect x="305" y="90" width="115" height="55" rx="27" fill="#f8f6f1" stroke="#2a7a6e" stroke-width="1.5"/>
+      <text x="362" y="124" text-anchor="middle" fill="#2a7a6e" font-family="Newsreader" font-size="22" font-weight="400">App live</text>
 
-      <rect x="415" y="100" width="110" height="42" rx="21" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1"/>
-      <text x="470" y="118" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">Launch</text>
-      <text x="470" y="133" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">marketing</text>
+      <rect x="460" y="195" width="150" height="65" rx="32" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1.2"/>
+      <text x="535" y="222" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">Launch</text>
+      <text x="535" y="247" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">marketing</text>
 
-      <rect x="415" y="260" width="110" height="42" rx="21" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1"/>
-      <text x="470" y="278" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">Monitor</text>
-      <text x="470" y="293" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">reviews</text>
+      <rect x="460" y="425" width="150" height="65" rx="32" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1.2"/>
+      <text x="535" y="452" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">Monitor</text>
+      <text x="535" y="477" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">reviews</text>
 
-      <rect x="270" y="332" width="100" height="38" rx="19" fill="#f8f6f1" stroke="#9b958e" stroke-width="1"/>
-      <text x="320" y="356" text-anchor="middle" fill="#6b6560" font-family="Newsreader" font-size="12" font-weight="400">Analyser</text>
+      <rect x="300" y="505" width="120" height="55" rx="27" fill="#f8f6f1" stroke="#9b958e" stroke-width="1.2"/>
+      <text x="360" y="539" text-anchor="middle" fill="#6b6560" font-family="Newsreader" font-size="20" font-weight="400">Analyser</text>
 
-      <rect x="110" y="260" width="110" height="42" rx="21" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1"/>
-      <text x="165" y="278" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">ASO</text>
-      <text x="165" y="293" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">itératif</text>
+      <rect x="110" y="425" width="150" height="65" rx="32" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1.2"/>
+      <text x="185" y="452" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">ASO</text>
+      <text x="185" y="477" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">itératif</text>
 
-      <rect x="110" y="100" width="110" height="42" rx="21" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1"/>
-      <text x="165" y="118" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">Contenu</text>
-      <text x="165" y="133" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="11" font-weight="400">& growth</text>
+      <rect x="110" y="195" width="150" height="65" rx="32" fill="rgba(107,79,160,.04)" stroke="#6b4fa0" stroke-width="1.2"/>
+      <text x="185" y="222" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">Contenu</text>
+      <text x="185" y="247" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="18" font-weight="400">&amp; growth</text>
 
-      <text x="320" y="200" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="15">le cycle</text>
-      <text x="320" y="220" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="15">ne s'arrête</text>
-      <text x="320" y="240" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="15">jamais</text>
+      <!-- Center text -->
+      <text x="360" y="305" text-anchor="middle" fill="#ccc5ba" font-family="Caveat" font-size="22">le cycle</text>
+      <text x="360" y="332" text-anchor="middle" fill="#ccc5ba" font-family="Caveat" font-size="22">ne s'arrête</text>
+      <text x="360" y="359" text-anchor="middle" fill="#ccc5ba" font-family="Caveat" font-size="22">jamais</text>
+
+      <!-- Legend -->
+      <circle cx="255" cy="635" r="5" fill="rgba(107,79,160,.15)" stroke="#6b4fa0" stroke-width=".75"/>
+      <text x="268" y="640" fill="#9b958e" font-family="Inter" font-size="13" font-weight="300">= Seb + Cowork</text>
+      <circle cx="430" cy="635" r="5" fill="#f8f6f1" stroke="#2a7a6e" stroke-width=".75"/>
+      <text x="443" y="640" fill="#9b958e" font-family="Inter" font-size="13" font-weight="300">= Martin</text>
     </svg>
     <div class="dcap">5 des 6 étapes sont à toi avec Cowork</div>
   </div>
@@ -376,58 +370,59 @@
   <p class="sd">Chaque branche = une catégorie de tâches automatisables.</p>
 
   <div class="dframe">
-    <svg viewBox="0 0 640 460" xmlns="http://www.w3.org/2000/svg">
-      <rect width="640" height="460" fill="url(#g)"/>
+    <svg viewBox="0 0 780 700" xmlns="http://www.w3.org/2000/svg">
+      <rect width="780" height="700" fill="url(#g)"/>
 
-      <circle cx="320" cy="230" r="38" fill="rgba(107,79,160,.05)" stroke="#6b4fa0" stroke-width="1.5"/>
-      <text x="320" y="226" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="14" font-weight="500">Cowork</text>
-      <text x="320" y="242" text-anchor="middle" fill="#9b958e" font-family="Inter" font-size="8">pour Seb</text>
+      <!-- Center node -->
+      <circle cx="390" cy="350" r="60" fill="rgba(107,79,160,.05)" stroke="#6b4fa0" stroke-width="1.5"/>
+      <text x="390" y="342" text-anchor="middle" fill="#6b4fa0" font-family="Newsreader" font-size="24" font-weight="400">Cowork</text>
+      <text x="390" y="368" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="16">pour Seb</text>
 
       <!-- Branch 1: ASO (top-left) -->
-      <line x1="290" y1="200" x2="140" y2="95" stroke="#c85a24" stroke-width=".75"/>
-      <circle cx="140" cy="95" r="3" fill="#c85a24"/>
-      <text x="55" y="68" fill="#c85a24" font-family="Newsreader" font-size="14" font-weight="500">ASO</text>
-      <text x="45" y="86" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Keywords optimisés</text>
-      <text x="45" y="101" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Descriptions A/B</text>
-      <text x="45" y="116" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Positions Astro</text>
+      <path d="M345 302 C310 240, 220 155, 175 130" stroke="#c85a24" stroke-width="1" fill="none"/>
+      <circle cx="175" cy="130" r="5" fill="#c85a24"/>
+      <text x="70" y="80" fill="#c85a24" font-family="Newsreader" font-size="22" font-weight="400">ASO</text>
+      <text x="50" y="108" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Keywords optimisés</text>
+      <text x="50" y="130" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Descriptions A/B</text>
+      <text x="50" y="152" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Positions Astro</text>
 
       <!-- Branch 2: Contenu (top-right) -->
-      <line x1="350" y1="200" x2="500" y2="75" stroke="#2a7a4e" stroke-width=".75"/>
-      <circle cx="500" cy="75" r="3" fill="#2a7a4e"/>
-      <text x="480" y="50" fill="#2a7a4e" font-family="Newsreader" font-size="14" font-weight="500">Contenu</text>
-      <text x="460" y="68" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Posts X / Reddit / LinkedIn</text>
-      <text x="460" y="83" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Content calendar</text>
-      <text x="460" y="98" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Email sequences</text>
+      <path d="M435 302 C470 240, 560 135, 605 110" stroke="#2a7a4e" stroke-width="1" fill="none"/>
+      <circle cx="605" cy="110" r="5" fill="#2a7a4e"/>
+      <text x="540" y="62" fill="#2a7a4e" font-family="Newsreader" font-size="22" font-weight="400">Contenu</text>
+      <text x="530" y="90" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Posts X / Reddit</text>
+      <text x="530" y="112" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Content calendar</text>
+      <text x="530" y="134" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Email sequences</text>
 
       <!-- Branch 3: Reviews (right) -->
-      <line x1="358" y1="230" x2="520" y2="230" stroke="#2a7a6e" stroke-width=".75"/>
-      <circle cx="520" cy="230" r="3" fill="#2a7a6e"/>
-      <text x="480" y="215" fill="#2a7a6e" font-family="Newsreader" font-size="14" font-weight="500">Reviews</text>
-      <text x="465" y="248" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Monitoring App Store</text>
-      <text x="465" y="263" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Réponses aux avis</text>
+      <path d="M450 350 C500 350, 580 345, 630 340" stroke="#2a7a6e" stroke-width="1" fill="none"/>
+      <circle cx="630" cy="340" r="5" fill="#2a7a6e"/>
+      <text x="570" y="310" fill="#2a7a6e" font-family="Newsreader" font-size="22" font-weight="400">Reviews</text>
+      <text x="560" y="365" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Monitoring App Store</text>
+      <text x="560" y="387" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Réponses aux avis</text>
 
       <!-- Branch 4: Compétition (bottom-right) -->
-      <line x1="348" y1="260" x2="480" y2="370" stroke="#6b6560" stroke-width=".75"/>
-      <circle cx="480" cy="370" r="3" fill="#6b6560"/>
-      <text x="445" y="355" fill="#6b6560" font-family="Newsreader" font-size="14" font-weight="500">Compétition</text>
-      <text x="430" y="387" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Analyse concurrents</text>
-      <text x="430" y="402" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Tableau comparatif</text>
+      <path d="M430 398 C470 450, 545 530, 580 560" stroke="#6b6560" stroke-width="1" fill="none"/>
+      <circle cx="580" cy="560" r="5" fill="#6b6560"/>
+      <text x="520" y="535" fill="#6b6560" font-family="Newsreader" font-size="22" font-weight="400">Compétition</text>
+      <text x="510" y="585" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Analyse concurrents</text>
+      <text x="510" y="607" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Tableau comparatif</text>
 
       <!-- Branch 5: Launch (bottom-left) -->
-      <line x1="292" y1="260" x2="160" y2="370" stroke="#c83a3a" stroke-width=".75"/>
-      <circle cx="160" cy="370" r="3" fill="#c83a3a"/>
-      <text x="110" y="355" fill="#c83a3a" font-family="Newsreader" font-size="14" font-weight="500">Launch</text>
-      <text x="90" y="387" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Kit de lancement</text>
-      <text x="90" y="402" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Product Hunt</text>
+      <path d="M350 398 C310 450, 230 530, 195 560" stroke="#c83a3a" stroke-width="1" fill="none"/>
+      <circle cx="195" cy="560" r="5" fill="#c83a3a"/>
+      <text x="115" y="535" fill="#c83a3a" font-family="Newsreader" font-size="22" font-weight="400">Launch</text>
+      <text x="95" y="585" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Kit de lancement</text>
+      <text x="95" y="607" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Product Hunt</text>
 
       <!-- Branch 6: Validation (left) -->
-      <line x1="282" y1="230" x2="120" y2="230" stroke="#c85a24" stroke-width=".75"/>
-      <circle cx="120" cy="230" r="3" fill="#c85a24"/>
-      <text x="45" y="215" fill="#c85a24" font-family="Newsreader" font-size="14" font-weight="500">Validation</text>
-      <text x="25" y="248" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Structurer AppValidator</text>
-      <text x="25" y="263" fill="#9b958e" font-family="Inter" font-size="9" font-weight="300">Rapports Go / Kill</text>
+      <path d="M330 350 C280 350, 200 345, 150 340" stroke="#c85a24" stroke-width="1" fill="none"/>
+      <circle cx="150" cy="340" r="5" fill="#c85a24"/>
+      <text x="40" y="310" fill="#c85a24" font-family="Newsreader" font-size="22" font-weight="400">Validation</text>
+      <text x="20" y="365" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Structurer AppValidator</text>
+      <text x="20" y="387" fill="#9b958e" font-family="Inter" font-size="14" font-weight="300">Rapports Go / Kill</text>
 
-      <text x="320" y="445" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="12">chaque branche = des prompts prêts à utiliser</text>
+      <text x="390" y="675" text-anchor="middle" fill="#9b958e" font-family="Caveat" font-size="17">chaque branche = des prompts prêts à utiliser</text>
     </svg>
     <div class="dcap">6 catégories — des dizaines de tâches automatisables</div>
   </div>
