@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Factory — Le rôle de Cowork pour Sébastien</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0b10;
+    --surface: #131318;
+    --surface-2: #1a1a22;
+    --border: #252530;
+    --text: #e4e2df;
+    --text-dim: #7e7e8e;
+    --seb: #e8773a;
+    --martin: #3abba8;
+    --cowork: #9b7af0;
+    --gap: #e84057;
+    --go: #3ad4a0;
+    --yellow: #e8c33a;
+    --blue: #3a8be8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--seb);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 0.4s;
+  }
+
+  .hero h1 .hl-seb { color: var(--seb); }
+  .hero h1 .hl-cowork { color: var(--cowork); }
+  .hero h1 .hl-gap { color: var(--gap); }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 0.6s;
+  }
+
+  .hero-desc strong { color: var(--text); font-weight: 600; }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 1s;
+  }
+
+  .scroll-cue::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-dim), transparent);
+    margin-top: 0.5rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .stag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cowork);
+    margin-bottom: 0.75rem;
+  }
+
+  .stitle {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .sdesc {
+    font-size: 1rem;
+    color: var(--text-dim);
+    max-width: 650px;
+    margin-bottom: 2.5rem;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  /* ── PIPELINE VISUAL ── */
+  .pipeline-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .pipeline-track::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .p-node {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.25rem 0;
+    position: relative;
+  }
+
+  .p-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid;
+    position: absolute;
+    left: -32px;
+    top: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    z-index: 2;
+    background: var(--bg);
+  }
+
+  .p-node.seb .p-dot { border-color: var(--seb); }
+  .p-node.martin .p-dot { border-color: var(--martin); }
+  .p-node.both .p-dot { border-color: var(--yellow); }
+  .p-node.auto .p-dot { border-color: var(--blue); }
+  .p-node.gap .p-dot { border-color: var(--gap); background: rgba(232,64,87,0.15); }
+
+  .p-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .p-node.gap .p-card {
+    border-color: var(--gap);
+    border-style: dashed;
+    background: rgba(232,64,87,0.04);
+  }
+
+  .p-card:hover { border-color: rgba(255,255,255,0.1); }
+
+  .p-who {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 0.4rem;
+  }
+
+  .p-who.seb { background: rgba(232,119,58,0.15); color: var(--seb); }
+  .p-who.martin { background: rgba(58,187,168,0.15); color: var(--martin); }
+  .p-who.both { background: rgba(232,195,58,0.15); color: var(--yellow); }
+  .p-who.auto { background: rgba(58,139,232,0.15); color: var(--blue); }
+  .p-who.gap { background: rgba(232,64,87,0.15); color: var(--gap); }
+  .p-who.cowork { background: rgba(155,122,240,0.15); color: var(--cowork); }
+
+  .p-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .p-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  .p-tool {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cowork);
+    background: rgba(155,122,240,0.08);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  /* ── GAP CALLOUT ── */
+  .gap-callout {
+    background: rgba(232,64,87,0.06);
+    border: 1px dashed var(--gap);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+
+  .gap-callout h3 {
+    color: var(--gap);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .gap-callout p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ── POST-LAUNCH GRID ── */
+  .pl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .pl-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .pl-card:hover {
+    border-color: var(--cowork);
+    transform: translateY(-2px);
+  }
+
+  .pl-card .pl-when {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+  }
+
+  .pl-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--cowork);
+    margin-bottom: 0.5rem;
+  }
+
+  .pl-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  .pl-card .prompt-example {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(155,122,240,0.06);
+    border-left: 2px solid var(--cowork);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .pl-card .result {
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--go);
+  }
+
+  /* ── BONUS SECTION ── */
+  .bonus-box {
+    background: var(--surface);
+    border: 1px solid var(--yellow);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+  }
+
+  .bonus-box h4 {
+    color: var(--yellow);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .bonus-box p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .bonus-box .prompt-example {
+    padding: 0.75rem 1rem;
+    background: rgba(232,195,58,0.06);
+    border-left: 2px solid var(--yellow);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .bonus-box .result {
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--go);
+  }
+
+  /* ── SETUP ── */
+  .setup-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .s-step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .s-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(155,122,240,0.1);
+    border: 1px solid var(--cowork);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--cowork);
+    flex-shrink: 0;
+  }
+
+  .s-step h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .s-step p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .s-step code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    background: rgba(155,122,240,0.08);
+    color: var(--cowork);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+  }
+
+  /* ── PRICING ── */
+  .price-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--go);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+  }
+
+  .price-bar .price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--go);
+    flex-shrink: 0;
+  }
+
+  .price-bar .price span {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  .price-bar .price-text h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+  }
+
+  .price-bar .price-text p {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .caveat {
+    padding: 0.75rem 1rem;
+    background: rgba(232,195,58,0.06);
+    border-left: 2px solid var(--yellow);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.8rem;
+    color: var(--yellow);
+    margin-top: 1rem;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.seb { background: var(--seb); }
+  .legend-dot.martin { background: var(--martin); }
+  .legend-dot.both { background: var(--yellow); }
+  .legend-dot.auto { background: var(--blue); }
+  .legend-dot.gap { background: var(--gap); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .footer .name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .pl-grid { grid-template-columns: 1fr; }
+    .price-bar { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-tag">Brief pour Sébastien — Février 2026</div>
+  <h1>
+    Notre pipeline est <span class="hl-seb">presque complet</span>.<br>
+    Il manque le <span class="hl-gap">post-launch</span>.<br>
+    <span class="hl-cowork">Cowork</span> comble le trou.
+  </h1>
+  <p class="hero-desc">
+    Ce doc te montre comment notre pipeline App Factory fonctionne de A à Z,
+    où se situe le gap, et comment <strong>Claude Cowork</strong> te donne
+    les outils pour gérer tout le marketing après la publication sur l'App Store.
+  </p>
+  <div class="scroll-cue">scroll</div>
+</div>
+
+<!-- ═══ PIPELINE ═══ -->
+<section>
+  <div class="stag">01 — Le pipeline actuel</div>
+  <div class="stitle">De l'idée à l'App Store</div>
+  <p class="sdesc">
+    Voici notre workflow réel — ce qui est en place, qui fait quoi,
+    et avec quels outils. Le point rouge, c'est le trou.
+  </p>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot seb"></div> Seb</div>
+    <div class="legend-item"><div class="legend-dot martin"></div> Martin</div>
+    <div class="legend-item"><div class="legend-dot both"></div> Ensemble</div>
+    <div class="legend-item"><div class="legend-dot auto"></div> Automatisé</div>
+    <div class="legend-item"><div class="legend-dot gap"></div> Le trou</div>
+  </div>
+
+  <div class="pipeline-track">
+
+    <div class="p-node seb">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who seb">Seb</span>
+        <h4>Découverte de niche</h4>
+        <p>Tu explores les keywords et niches dans <span class="p-tool">Astro</span> — popularité, difficulté, compétition. Tu identifies les opportunités où la demande est là mais l'offre est médiocre.</p>
+      </div>
+    </div>
+
+    <div class="p-node both">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who both">Ensemble</span>
+        <h4>Validation de l'idée</h4>
+        <p>Tu roules l'idée dans <span class="p-tool">AppValidator</span> (notre app iOS). Les résultats sont partagés par email/WhatsApp. On discute et on décide : Go ou Kill.</p>
+      </div>
+    </div>
+
+    <div class="p-node auto">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who auto">Automatisé</span>
+        <h4>Cross-validation technique</h4>
+        <p>Les skills Claude Code de Martin font le débat automatisé — <span class="p-tool">persona-stress-test</span>, <span class="p-tool">persona-debate</span>, <span class="p-tool">product-discovery</span>. Ça confronte l'idée sous plusieurs angles avant d'investir du temps de dev.</p>
+      </div>
+    </div>
+
+    <div class="p-node martin">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who martin">Martin</span>
+        <h4>Développement</h4>
+        <p>Vibe coding dans <span class="p-tool">Xcode 26.3 + Claude Agent</span>. Build du MVP, tests, itérations. Tu reçois les builds TestFlight pour tester.</p>
+      </div>
+    </div>
+
+    <div class="p-node both">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who both">Ensemble</span>
+        <h4>Beta testing</h4>
+        <p>Tu testes via TestFlight, tu donnes ton feedback par WhatsApp. Martin intègre tes retours. Minimum 2 cycles avant de soumettre.</p>
+      </div>
+    </div>
+
+    <div class="p-node auto">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who auto">Automatisé</span>
+        <h4>Préparation App Store</h4>
+        <p>Le skill <span class="p-tool">/app-store-submit</span> fait le gros du travail : audit, metadata, descriptions FR/EN, keywords ASO, screenshots, build Release, packaging complet.</p>
+      </div>
+    </div>
+
+    <div class="p-node auto">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who auto">Automatisé</span>
+        <h4>Deploy</h4>
+        <p>Le skill <span class="p-tool">/deploy</span> prend le package et le push vers l'App Store via <span class="p-tool">fastlane</span>. Une commande = c'est live.</p>
+      </div>
+    </div>
+
+    <!-- THE GAP -->
+    <div class="p-node gap">
+      <div class="p-dot"></div>
+      <div class="p-card">
+        <span class="p-who gap">??? — rien</span>
+        <h4>Post-launch marketing</h4>
+        <p>L'app est live. Et après? Personne s'occupe de l'ASO itératif, du content marketing, du suivi des reviews, des ajustements, de la croissance. C'est ici que Cowork entre en jeu — et c'est ton territoire.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gap-callout">
+    <h3>Le pipeline s'arrête à la publication</h3>
+    <p>On a automatisé de l'idée au deploy. Mais une app sans marketing post-launch, c'est comme ouvrir un restaurant sans mettre d'enseigne dehors.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ COWORK POST-LAUNCH ═══ -->
+<section>
+  <div class="stag">02 — Ton rôle post-launch avec Cowork</div>
+  <div class="stitle">Le marketing après le Ship</div>
+  <p class="sdesc">
+    Voici les tâches concrètes que Cowork peut faire pour toi après qu'une app
+    est publiée. Chaque carte = un prompt que tu peux lancer dans Cowork.
+  </p>
+
+  <div class="pl-grid">
+
+    <div class="pl-card">
+      <div class="pl-when">Semaine 1 — Lancement</div>
+      <h4>Annonces de lancement</h4>
+      <p>Cowork génère tout le contenu de launch : posts X/Twitter, Reddit, LinkedIn, email pour ta liste beta, post Product Hunt si applicable.</p>
+      <div class="prompt-example">
+        "Notre app FreedomTracker vient de sortir sur l'App Store. C'est une app de suivi d'élimination de dettes pour les Canadiens. Crée un kit de lancement : 5 tweets thread, 1 post Reddit pour r/PersonalFinanceCanada, 1 post LinkedIn. Ton authentique, pas corporate. Sauvegarde dans marketing/launch-kit/"
+      </div>
+      <div class="result">→ Dossier avec tous les textes prêts à poster</div>
+    </div>
+
+    <div class="pl-card">
+      <div class="pl-when">Semaines 1-4 — ASO itératif</div>
+      <h4>Optimisation App Store continue</h4>
+      <p>Après le launch, l'ASO c'est pas fini — c'est juste le début. Cowork analyse les positions dans Astro (export CSV) et propose des ajustements aux descriptions et keywords.</p>
+      <div class="prompt-example">
+        "Voici l'export CSV d'Astro pour FreedomTracker (dans le dossier astro-exports/). Analyse les positions de nos keywords, identifie ceux qui performent vs ceux qui stagnent. Propose une nouvelle version des keywords (100 chars max) et une description App Store ajustée. Sauvegarde dans marketing/aso-iteration-v2.md"
+      </div>
+      <div class="result">→ Nouvelles descriptions + keywords optimisés</div>
+    </div>
+
+    <div class="pl-card">
+      <div class="pl-when">Continu — Chaque semaine</div>
+      <h4>Content calendar</h4>
+      <p>Un calendrier de contenu alimenté chaque semaine : tips financiers, behind-the-scenes, user stories. Cowork draft, toi tu valides et postes.</p>
+      <div class="prompt-example">
+        "Crée un calendrier de contenu pour les 2 prochaines semaines pour CreditCopilot. Mix de tips sur le crédit au Canada, behind-the-scenes du développement, et questions engageantes. Format spreadsheet. Sauvegarde dans marketing/content-calendar-w3.xlsx"
+      </div>
+      <div class="result">→ Spreadsheet avec dates, plateformes, textes drafts</div>
+    </div>
+
+    <div class="pl-card">
+      <div class="pl-when">Continu — Bi-mensuel</div>
+      <h4>Monitoring des reviews</h4>
+      <p>Cowork recherche les nouvelles reviews sur l'App Store, les résume, identifie les tendances positives/négatives, et suggère des réponses + améliorations à communiquer à Martin.</p>
+      <div class="prompt-example">
+        "Cherche les reviews récentes de CreditCopilot sur l'App Store canadien et américain. Résume les thèmes positifs et négatifs. Propose des réponses pour les reviews négatives et une liste de bugs/features à remonter à Martin. Rapport dans marketing/reviews-report-feb.md"
+      </div>
+      <div class="result">→ Rapport structuré avec actions à prendre</div>
+    </div>
+
+    <div class="pl-card">
+      <div class="pl-when">Mensuel</div>
+      <h4>Analyse compétitive</h4>
+      <p>Un check mensuel sur ce que la compétition fait : nouvelles features, changements de prix, reviews de leurs users. Ça alimente la stratégie pour les updates.</p>
+      <div class="prompt-example">
+        "Analyse les 5 principaux compétiteurs de FreedomTracker sur l'App Store canadien. Compare : pricing, rating moyen, features récentes, plaintes des users. Crée un tableau comparatif dans marketing/competitive-feb.xlsx"
+      </div>
+      <div class="result">→ Excel comparatif pour décision stratégique</div>
+    </div>
+
+    <div class="pl-card">
+      <div class="pl-when">À chaque update</div>
+      <h4>Release notes user-friendly</h4>
+      <p>Martin push une update, Cowork transforme le changelog technique en release notes que les humains comprennent.</p>
+      <div class="prompt-example">
+        "Lis le fichier CHANGELOG.md dans le dossier projet. Génère des release notes pour la version 1.3 — pas de jargon technique, ton motivant. Ce que les users vont aimer dans cette update. Sauvegarde dans marketing/release-notes-v1.3.md"
+      </div>
+      <div class="result">→ Notes de version prêtes pour App Store Connect</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BONUS ═══ -->
+<section>
+  <div class="stag">03 — Bonus</div>
+  <div class="stitle">Structurer les résultats d'AppValidator</div>
+  <p class="sdesc">
+    Tu utilises déjà AppValidator pour valider tes idées — Cowork peut aussi t'aider
+    à transformer tes résultats bruts en rapports structurés qu'on peut utiliser pour décider.
+  </p>
+
+  <div class="bonus-box">
+    <h4>Le problème actuel</h4>
+    <p>
+      Tu roules AppValidator, t'obtiens des résultats, et tu m'envoies ça par email comme des liens bruts.
+      C'est du bon travail, mais c'est difficile pour moi de prendre une décision Go/Kill à partir de ça.
+      Cowork peut structurer tout ça automatiquement.
+    </p>
+    <div class="prompt-example">
+      "J'ai les résultats de validation pour une idée d'app appelée [NomApp]. Voici les données brutes [colle ou pointe vers le fichier]. Structure ça en un rapport Go/Kill avec : résumé de l'idée, score de marché, risques identifiés, compétition, effort estimé, et ta recommandation. Sauvegarde dans validations/[nomapp]-report.md"
+    </div>
+    <div class="result">→ Rapport d'une page, clair, décisionnel — que Martin peut lire en 2 minutes</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ C'EST QUOI COWORK ═══ -->
+<section>
+  <div class="stag">04 — C'est quoi Cowork</div>
+  <div class="stitle">En 30 secondes</div>
+  <p class="sdesc">
+    Cowork c'est Claude qui travaille directement sur ton ordi. Pas un chat —
+    un assistant qui lit, crée et modifie tes fichiers.
+  </p>
+
+  <div class="pl-grid">
+    <div class="pl-card" style="border-color: var(--go);">
+      <h4 style="color: var(--go);">Ce que Cowork fait</h4>
+      <p>Tu lui donnes accès à un dossier sur ton Mac. Tu décris ce que tu veux. Il fait un plan, te le montre, et exécute. Il crée des documents, des spreadsheets, fait de la recherche web, génère du contenu — directement dans tes fichiers.</p>
+    </div>
+    <div class="pl-card" style="border-color: var(--gap);">
+      <h4 style="color: var(--gap);">Ce que Cowork n'est pas</h4>
+      <p>C'est pas un chatbot où tu copies-colles. C'est pas un outil de code (ça c'est le côté de Martin). C'est pour le travail de contenu, d'analyse, d'organisation — exactement ton rôle dans l'équipe.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SETUP ═══ -->
+<section>
+  <div class="stag">05 — Setup</div>
+  <div class="stitle">5 minutes pour partir</div>
+  <p class="sdesc">T'as déjà le plan Pro. Cowork est inclus.</p>
+
+  <div class="setup-steps">
+    <div class="s-step">
+      <div class="s-num">1</div>
+      <div>
+        <h4>Télécharge Claude Desktop</h4>
+        <p>Va sur <code>claude.ai/download</code> — l'app macOS (pas la version web).</p>
+      </div>
+    </div>
+    <div class="s-step">
+      <div class="s-num">2</div>
+      <div>
+        <h4>Connecte-toi avec ton compte Pro</h4>
+        <p>Même compte, Cowork est déjà inclus.</p>
+      </div>
+    </div>
+    <div class="s-step">
+      <div class="s-num">3</div>
+      <div>
+        <h4>Clique sur "Cowork"</h4>
+        <p>En haut de l'app : <code>Chat</code> et <code>Cowork</code>. Bascule en mode Tasks.</p>
+      </div>
+    </div>
+    <div class="s-step">
+      <div class="s-num">4</div>
+      <div>
+        <h4>Pointe vers ton dossier marketing</h4>
+        <p>Crée un dossier <code>AppFactory/marketing/</code> sur ton Mac. Cowork va y travailler.</p>
+      </div>
+    </div>
+    <div class="s-step">
+      <div class="s-num">5</div>
+      <div>
+        <h4>Copie un prompt de la section 02 et go</h4>
+        <p>Commence par le plus simple — un content calendar ou une analyse compétitive.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="price-bar">
+    <div class="price">20$<span> /mois</span></div>
+    <div class="price-text">
+      <h4>Ton plan Pro inclut déjà Cowork</h4>
+      <p>Zéro coût additionnel. Mêmes features que le plan Max de Martin, juste avec des limites d'usage plus basses.</p>
+    </div>
+  </div>
+
+  <div class="caveat">
+    Cowork consomme plus de quota que le chat normal. Regroupe tes tâches par batch au lieu de lancer plein de petites sessions.
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div class="name">App Factory</div>
+  <p>Martin & Sébastien — Équipe Indie iOS</p>
+  <p style="margin-top: 0.4rem; font-size: 0.6rem; color: #444;">Février 2026</p>
+</div>
+
+</body>
+</html>
