@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Factory — Le rôle de Cowork pour Sébastien</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0b0b10;
@@ -20,6 +20,7 @@
     --go: #3ad4a0;
     --yellow: #e8c33a;
     --blue: #3a8be8;
+    --sketch-stroke: #555568;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,8 +52,7 @@
     text-transform: uppercase;
     color: var(--seb);
     margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards 0.2s;
+    opacity: 0; animation: fadeIn 0.6s ease forwards 0.2s;
   }
 
   .hero h1 {
@@ -61,8 +61,7 @@
     line-height: 1.08;
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards 0.4s;
+    opacity: 0; animation: fadeIn 0.6s ease forwards 0.4s;
   }
 
   .hero h1 .hl-seb { color: var(--seb); }
@@ -70,36 +69,20 @@
   .hero h1 .hl-gap { color: var(--gap); }
 
   .hero-desc {
-    font-size: 1.1rem;
-    color: var(--text-dim);
-    max-width: 600px;
-    line-height: 1.7;
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards 0.6s;
+    font-size: 1.1rem; color: var(--text-dim); max-width: 600px; line-height: 1.7;
+    opacity: 0; animation: fadeIn 0.6s ease forwards 0.6s;
   }
-
   .hero-desc strong { color: var(--text); font-weight: 600; }
 
   .scroll-cue {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 2rem;
+    position: absolute; bottom: 2.5rem; left: 2rem;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards 1s;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim);
+    opacity: 0; animation: fadeIn 0.6s ease forwards 1s;
   }
-
   .scroll-cue::after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--text-dim), transparent);
-    margin-top: 0.5rem;
+    content: ''; display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--text-dim), transparent); margin-top: 0.5rem;
   }
 
   @keyframes fadeIn {
@@ -108,86 +91,72 @@
   }
 
   /* ── SECTIONS ── */
-  section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
-
+  section { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
   .stag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--cowork);
-    margin-bottom: 0.75rem;
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--cowork); margin-bottom: 0.75rem;
   }
-
   .stitle {
     font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
+    font-weight: 800; line-height: 1.15; margin-bottom: 0.75rem; letter-spacing: -0.01em;
+  }
+  .sdesc { font-size: 1rem; color: var(--text-dim); max-width: 650px; margin-bottom: 2.5rem; }
+  .divider { height: 1px; background: var(--border); margin: 0 auto; max-width: 900px; }
+
+  /* ── SVG DIAGRAMS ── */
+  .diagram-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    overflow-x: auto;
+    position: relative;
   }
 
-  .sdesc {
-    font-size: 1rem;
+  .diagram-container::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-family: 'Caveat', cursive;
+    font-size: 0.85rem;
     color: var(--text-dim);
-    max-width: 650px;
-    margin-bottom: 2.5rem;
+    opacity: 0.6;
   }
 
-  .divider {
-    height: 1px;
-    background: var(--border);
+  .diagram-container svg {
+    display: block;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 100%;
+    height: auto;
   }
 
-  /* ── PIPELINE VISUAL ── */
+  /* handwritten annotation style */
+  .sketch-note {
+    font-family: 'Caveat', cursive;
+    fill: var(--text-dim);
+    font-size: 14px;
+  }
+
+  /* ── PIPELINE TRACK ── */
   .pipeline-track {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    position: relative;
-    padding-left: 32px;
+    display: flex; flex-direction: column; gap: 0;
+    position: relative; padding-left: 32px;
   }
-
   .pipeline-track::before {
-    content: '';
-    position: absolute;
-    left: 11px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--border);
+    content: ''; position: absolute; left: 11px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
   }
-
   .p-node {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    padding: 1.25rem 0;
-    position: relative;
+    display: flex; align-items: flex-start; gap: 1.25rem; padding: 1.25rem 0; position: relative;
   }
-
   .p-dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid;
-    position: absolute;
-    left: -32px;
-    top: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    z-index: 2;
-    background: var(--bg);
+    width: 24px; height: 24px; border-radius: 50%; border: 2px solid;
+    position: absolute; left: -32px; top: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; z-index: 2; background: var(--bg);
   }
-
   .p-node.seb .p-dot { border-color: var(--seb); }
   .p-node.martin .p-dot { border-color: var(--martin); }
   .p-node.both .p-dot { border-color: var(--yellow); }
@@ -195,33 +164,17 @@
   .p-node.gap .p-dot { border-color: var(--gap); background: rgba(232,64,87,0.15); }
 
   .p-card {
-    flex: 1;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    transition: border-color 0.2s ease;
+    flex: 1; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem; transition: border-color 0.2s ease;
   }
-
-  .p-node.gap .p-card {
-    border-color: var(--gap);
-    border-style: dashed;
-    background: rgba(232,64,87,0.04);
-  }
-
+  .p-node.gap .p-card { border-color: var(--gap); border-style: dashed; background: rgba(232,64,87,0.04); }
   .p-card:hover { border-color: rgba(255,255,255,0.1); }
 
   .p-who {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.1rem 0.5rem;
-    border-radius: 3px;
-    display: inline-block;
-    margin-bottom: 0.4rem;
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.1rem 0.5rem; border-radius: 3px; display: inline-block; margin-bottom: 0.4rem;
   }
-
   .p-who.seb { background: rgba(232,119,58,0.15); color: var(--seb); }
   .p-who.martin { background: rgba(58,187,168,0.15); color: var(--martin); }
   .p-who.both { background: rgba(232,195,58,0.15); color: var(--yellow); }
@@ -229,272 +182,109 @@
   .p-who.gap { background: rgba(232,64,87,0.15); color: var(--gap); }
   .p-who.cowork { background: rgba(155,122,240,0.15); color: var(--cowork); }
 
-  .p-card h4 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-  }
-
-  .p-card p {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    line-height: 1.55;
-  }
-
+  .p-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .p-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
   .p-tool {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--cowork);
-    background: rgba(155,122,240,0.08);
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    color: var(--cowork); background: rgba(155,122,240,0.08);
+    padding: 0.1rem 0.4rem; border-radius: 3px;
   }
 
   /* ── GAP CALLOUT ── */
   .gap-callout {
-    background: rgba(232,64,87,0.06);
-    border: 1px dashed var(--gap);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2.5rem 0;
-    text-align: center;
+    background: rgba(232,64,87,0.06); border: 1px dashed var(--gap);
+    border-radius: 12px; padding: 2rem; margin: 2.5rem 0; text-align: center;
   }
-
-  .gap-callout h3 {
-    color: var(--gap);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .gap-callout p {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  .gap-callout h3 { color: var(--gap); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .gap-callout p { color: var(--text-dim); font-size: 0.9rem; max-width: 500px; margin: 0 auto; }
 
   /* ── POST-LAUNCH GRID ── */
   .pl-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-    margin: 2rem 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem; margin: 2rem 0;
   }
-
   .pl-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.75rem;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
-
-  .pl-card:hover {
-    border-color: var(--cowork);
-    transform: translateY(-2px);
-  }
-
+  .pl-card:hover { border-color: var(--cowork); transform: translateY(-2px); }
   .pl-card .pl-when {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 0.75rem;
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 0.75rem;
   }
-
-  .pl-card h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--cowork);
-    margin-bottom: 0.5rem;
-  }
-
-  .pl-card p {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    line-height: 1.55;
-  }
-
+  .pl-card h4 { font-size: 1rem; font-weight: 700; color: var(--cowork); margin-bottom: 0.5rem; }
+  .pl-card p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
   .pl-card .prompt-example {
-    margin-top: 1rem;
-    padding: 0.75rem 1rem;
-    background: rgba(155,122,240,0.06);
-    border-left: 2px solid var(--cowork);
-    border-radius: 0 6px 6px 0;
-    font-size: 0.8rem;
-    font-style: italic;
-    color: var(--text);
-    line-height: 1.5;
+    margin-top: 1rem; padding: 0.75rem 1rem;
+    background: rgba(155,122,240,0.06); border-left: 2px solid var(--cowork);
+    border-radius: 0 6px 6px 0; font-size: 0.8rem; font-style: italic;
+    color: var(--text); line-height: 1.5;
   }
-
   .pl-card .result {
-    margin-top: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--go);
+    margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--go);
   }
 
-  /* ── BONUS SECTION ── */
+  /* ── BONUS ── */
   .bonus-box {
-    background: var(--surface);
-    border: 1px solid var(--yellow);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2.5rem 0;
+    background: var(--surface); border: 1px solid var(--yellow);
+    border-radius: 12px; padding: 2rem; margin: 2.5rem 0;
   }
-
-  .bonus-box h4 {
-    color: var(--yellow);
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .bonus-box p {
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
+  .bonus-box h4 { color: var(--yellow); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .bonus-box p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 1rem; }
   .bonus-box .prompt-example {
-    padding: 0.75rem 1rem;
-    background: rgba(232,195,58,0.06);
-    border-left: 2px solid var(--yellow);
-    border-radius: 0 6px 6px 0;
-    font-size: 0.8rem;
-    font-style: italic;
-    color: var(--text);
-    line-height: 1.5;
+    padding: 0.75rem 1rem; background: rgba(232,195,58,0.06);
+    border-left: 2px solid var(--yellow); border-radius: 0 6px 6px 0;
+    font-size: 0.8rem; font-style: italic; color: var(--text); line-height: 1.5;
   }
-
   .bonus-box .result {
-    margin-top: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--go);
+    margin-top: 0.5rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--go);
   }
 
   /* ── SETUP ── */
-  .setup-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .s-step {
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
+  .setup-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+  .s-step { display: flex; gap: 1.25rem; align-items: flex-start; }
   .s-num {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(155,122,240,0.1);
-    border: 1px solid var(--cowork);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--cowork);
-    flex-shrink: 0;
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(155,122,240,0.1); border: 1px solid var(--cowork);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+    font-weight: 700; color: var(--cowork); flex-shrink: 0;
   }
-
-  .s-step h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-  }
-
-  .s-step p {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-  }
-
+  .s-step h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .s-step p { font-size: 0.85rem; color: var(--text-dim); }
   .s-step code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    background: rgba(155,122,240,0.08);
-    color: var(--cowork);
-    padding: 0.1rem 0.35rem;
-    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+    background: rgba(155,122,240,0.08); color: var(--cowork);
+    padding: 0.1rem 0.35rem; border-radius: 3px;
   }
 
   /* ── PRICING ── */
   .price-bar {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--go);
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin: 2.5rem 0;
+    display: flex; align-items: center; gap: 1.5rem;
+    background: var(--surface); border: 1px solid var(--go);
+    border-radius: 12px; padding: 1.5rem 2rem; margin: 2.5rem 0;
   }
-
-  .price-bar .price {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--go);
-    flex-shrink: 0;
-  }
-
-  .price-bar .price span {
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    font-weight: 400;
-  }
-
-  .price-bar .price-text h4 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 0.15rem;
-  }
-
-  .price-bar .price-text p {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-  }
-
+  .price-bar .price { font-size: 2.5rem; font-weight: 900; color: var(--go); flex-shrink: 0; }
+  .price-bar .price span { font-size: 0.9rem; color: var(--text-dim); font-weight: 400; }
+  .price-bar .price-text h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.15rem; }
+  .price-bar .price-text p { font-size: 0.8rem; color: var(--text-dim); }
   .caveat {
-    padding: 0.75rem 1rem;
-    background: rgba(232,195,58,0.06);
-    border-left: 2px solid var(--yellow);
-    border-radius: 0 6px 6px 0;
-    font-size: 0.8rem;
-    color: var(--yellow);
-    margin-top: 1rem;
+    padding: 0.75rem 1rem; background: rgba(232,195,58,0.06);
+    border-left: 2px solid var(--yellow); border-radius: 0 6px 6px 0;
+    font-size: 0.8rem; color: var(--yellow); margin-top: 1rem;
   }
 
   /* ── LEGEND ── */
-  .legend {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-    font-size: 0.8rem;
-  }
-
+  .legend { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2rem; font-size: 0.8rem; }
   .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
   }
-
-  .legend-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
   .legend-dot.seb { background: var(--seb); }
   .legend-dot.martin { background: var(--martin); }
   .legend-dot.both { background: var(--yellow); }
@@ -503,25 +293,15 @@
 
   /* ── FOOTER ── */
   .footer {
-    text-align: center;
-    padding: 4rem 2rem 3rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-dim);
+    text-align: center; padding: 4rem 2rem 3rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim);
   }
+  .footer .name { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 0.3rem; }
 
-  .footer .name {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 0.3rem;
-  }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 640px) {
     .pl-grid { grid-template-columns: 1fr; }
     .price-bar { flex-direction: column; text-align: center; }
+    .diagram-container { padding: 1rem; }
   }
 </style>
 </head>
@@ -543,14 +323,334 @@
   <div class="scroll-cue">scroll</div>
 </div>
 
-<!-- ═══ PIPELINE ═══ -->
+<!-- ═══ DIAGRAM 1: PIPELINE FLOWCHART ═══ -->
 <section>
-  <div class="stag">01 — Le pipeline actuel</div>
-  <div class="stitle">De l'idée à l'App Store</div>
+  <div class="stag">01 — Vue d'ensemble</div>
+  <div class="stitle">Le pipeline complet, d'un coup d'oeil</div>
   <p class="sdesc">
-    Voici notre workflow réel — ce qui est en place, qui fait quoi,
-    et avec quels outils. Le point rouge, c'est le trou.
+    Comme un de tes dessins Supernote, mais interactif. Le point rouge = le trou qu'on va combler.
   </p>
+
+  <div class="diagram-container" data-label="pipeline flowchart">
+    <svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background grid dots -->
+      <defs>
+        <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+          <circle cx="10" cy="10" r="0.5" fill="#252530"/>
+        </pattern>
+        <!-- Arrow marker -->
+        <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+          <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#555568"/>
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+          <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#e84057"/>
+        </marker>
+        <marker id="arrow-purple" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+          <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#9b7af0"/>
+        </marker>
+      </defs>
+      <rect width="800" height="520" fill="url(#dots)"/>
+
+      <!-- FLOW: Left to right, top row then bottom row -->
+
+      <!-- Node 1: Astro -->
+      <rect x="30" y="40" width="140" height="70" rx="10" fill="none" stroke="#e8773a" stroke-width="2"/>
+      <text x="100" y="68" text-anchor="middle" fill="#e8773a" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">SEB</text>
+      <text x="100" y="90" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="14" font-weight="700">Astro</text>
+      <text x="100" y="128" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">niches &amp; keywords</text>
+
+      <!-- Arrow 1→2 -->
+      <line x1="170" y1="75" x2="210" y2="75" stroke="#555568" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- Node 2: AppValidator -->
+      <rect x="220" y="40" width="140" height="70" rx="10" fill="none" stroke="#e8c33a" stroke-width="2"/>
+      <text x="290" y="68" text-anchor="middle" fill="#e8c33a" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">ENSEMBLE</text>
+      <text x="290" y="90" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="14" font-weight="700">AppValidator</text>
+      <text x="290" y="128" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">go ou kill?</text>
+
+      <!-- Arrow 2→3 -->
+      <line x1="360" y1="75" x2="410" y2="75" stroke="#555568" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- Node 3: Cross-validation -->
+      <rect x="420" y="40" width="140" height="70" rx="10" fill="none" stroke="#3a8be8" stroke-width="2"/>
+      <text x="490" y="68" text-anchor="middle" fill="#3a8be8" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">AUTOMATISÉ</text>
+      <text x="490" y="90" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="13" font-weight="700">Cross-validation</text>
+      <text x="490" y="128" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">personas IA</text>
+
+      <!-- Arrow 3→4 -->
+      <line x1="560" y1="75" x2="610" y2="75" stroke="#555568" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- Node 4: Xcode Dev -->
+      <rect x="620" y="40" width="140" height="70" rx="10" fill="none" stroke="#3abba8" stroke-width="2"/>
+      <text x="690" y="68" text-anchor="middle" fill="#3abba8" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">MARTIN</text>
+      <text x="690" y="90" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="14" font-weight="700">Xcode + Claude</text>
+      <text x="690" y="128" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">vibe coding</text>
+
+      <!-- Arrow 4 down to row 2 -->
+      <path d="M 690 110 L 690 170 L 670 190" stroke="#555568" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+      <!-- ROW 2: Right to left -->
+
+      <!-- Node 5: Beta -->
+      <rect x="570" y="190" width="140" height="70" rx="10" fill="none" stroke="#e8c33a" stroke-width="2"/>
+      <text x="640" y="218" text-anchor="middle" fill="#e8c33a" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">ENSEMBLE</text>
+      <text x="640" y="240" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="14" font-weight="700">Beta TestFlight</text>
+      <text x="640" y="278" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">Seb teste, feedback</text>
+
+      <!-- Arrow 5→6 -->
+      <line x1="570" y1="225" x2="520" y2="225" stroke="#555568" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- Node 6: App Store Submit -->
+      <rect x="370" y="190" width="140" height="70" rx="10" fill="none" stroke="#3a8be8" stroke-width="2"/>
+      <text x="440" y="218" text-anchor="middle" fill="#3a8be8" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">AUTOMATISÉ</text>
+      <text x="440" y="237" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="12" font-weight="700">/app-store-submit</text>
+      <text x="440" y="278" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">metadata, screenshots, build</text>
+
+      <!-- Arrow 6→7 -->
+      <line x1="370" y1="225" x2="320" y2="225" stroke="#555568" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- Node 7: Deploy -->
+      <rect x="170" y="190" width="140" height="70" rx="10" fill="none" stroke="#3a8be8" stroke-width="2"/>
+      <text x="240" y="218" text-anchor="middle" fill="#3a8be8" font-family="JetBrains Mono" font-size="10" font-weight="600" letter-spacing="0.1em">AUTOMATISÉ</text>
+      <text x="240" y="237" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="14" font-weight="700">/deploy</text>
+      <text x="240" y="278" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">fastlane → App Store</text>
+
+      <!-- Arrow 7→8 (THE GAP) -->
+      <path d="M 240 260 L 240 310 L 260 340" stroke="#e84057" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow-red)"/>
+
+      <!-- Annotation: "on est ici" -->
+      <text x="160" y="330" fill="#e84057" font-family="Caveat" font-size="18" font-weight="600">← on est ici</text>
+
+      <!-- THE GAP NODE -->
+      <rect x="270" y="340" width="260" height="80" rx="12" fill="rgba(232,64,87,0.06)" stroke="#e84057" stroke-width="2" stroke-dasharray="6,4"/>
+      <text x="400" y="370" text-anchor="middle" fill="#e84057" font-family="JetBrains Mono" font-size="11" font-weight="700" letter-spacing="0.05em">POST-LAUNCH MARKETING</text>
+      <text x="400" y="395" text-anchor="middle" fill="#e84057" font-family="Outfit" font-size="13">ASO · Contenu · Reviews · Growth</text>
+      <text x="400" y="415" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="14">le trou à combler</text>
+
+      <!-- Arrow gap → Cowork solution -->
+      <path d="M 530 380 L 600 380" stroke="#9b7af0" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+
+      <!-- COWORK SOLUTION -->
+      <rect x="610" y="345" width="160" height="70" rx="12" fill="rgba(155,122,240,0.08)" stroke="#9b7af0" stroke-width="2.5"/>
+      <text x="690" y="374" text-anchor="middle" fill="#9b7af0" font-family="JetBrains Mono" font-size="11" font-weight="700" letter-spacing="0.05em">COWORK</text>
+      <text x="690" y="396" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="13" font-weight="600">Le rôle de Seb</text>
+
+      <!-- Feedback loop arrow from Cowork back to Astro -->
+      <path d="M 690 415 L 690 480 L 100 480 L 100 115" stroke="#555568" stroke-width="1" stroke-dasharray="4,4" fill="none" marker-end="url(#arrow)"/>
+      <text x="400" y="498" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="13">boucle : les données post-launch alimentent la prochaine idée</text>
+    </svg>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DIAGRAM 2: ROLES ═══ -->
+<section>
+  <div class="stag">02 — Les rôles</div>
+  <div class="stitle">Qui fait quoi</div>
+  <p class="sdesc">Martin = technique. Seb = marché &amp; contenu. Cowork = ton bras droit automatisé.</p>
+
+  <div class="diagram-container" data-label="rôles &amp; responsabilités">
+    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="400" fill="url(#dots)"/>
+
+      <!-- SEB circle -->
+      <circle cx="200" cy="180" r="80" fill="rgba(232,119,58,0.08)" stroke="#e8773a" stroke-width="2.5"/>
+      <text x="200" y="160" text-anchor="middle" fill="#e8773a" font-family="Outfit" font-size="20" font-weight="800">Seb</text>
+      <text x="200" y="182" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Idées · Marché</text>
+      <text x="200" y="198" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Contenu · Growth</text>
+      <text x="200" y="214" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Beta testing</text>
+
+      <!-- MARTIN circle -->
+      <circle cx="600" cy="180" r="80" fill="rgba(58,187,168,0.08)" stroke="#3abba8" stroke-width="2.5"/>
+      <text x="600" y="160" text-anchor="middle" fill="#3abba8" font-family="Outfit" font-size="20" font-weight="800">Martin</text>
+      <text x="600" y="182" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Code · Architecture</text>
+      <text x="600" y="198" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Build · Deploy</text>
+      <text x="600" y="214" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Skills Claude Code</text>
+
+      <!-- COWORK circle (center, overlapping) -->
+      <circle cx="400" cy="180" r="90" fill="rgba(155,122,240,0.06)" stroke="#9b7af0" stroke-width="2.5"/>
+      <text x="400" y="155" text-anchor="middle" fill="#9b7af0" font-family="Outfit" font-size="20" font-weight="800">Cowork</text>
+      <text x="400" y="178" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Seb l'utilise pour :</text>
+      <text x="400" y="196" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">ASO · Landing pages</text>
+      <text x="400" y="212" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Rapports · Content</text>
+      <text x="400" y="228" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="11">Reviews · Releases</text>
+
+      <!-- Connection lines -->
+      <line x1="280" y1="180" x2="310" y2="180" stroke="#e8773a" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="490" y1="180" x2="520" y2="180" stroke="#3abba8" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+      <!-- WhatsApp connection -->
+      <path d="M 250 120 Q 400 40 550 120" stroke="#555568" stroke-width="1" stroke-dasharray="4,4" fill="none"/>
+      <text x="400" y="65" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="14">WhatsApp + email</text>
+
+      <!-- Annotations -->
+      <text x="80" y="310" fill="#e8773a" font-family="Caveat" font-size="15">Astro · AppValidator</text>
+      <text x="80" y="330" fill="#e8773a" font-family="Caveat" font-size="15">Supernote · idées</text>
+      <line x1="170" y1="300" x2="195" y2="260" stroke="#e8773a" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <text x="570" y="310" fill="#3abba8" font-family="Caveat" font-size="15">Xcode · Claude Agent</text>
+      <text x="570" y="330" fill="#3abba8" font-family="Caveat" font-size="15">fastlane · GitHub</text>
+      <line x1="610" y1="300" x2="605" y2="260" stroke="#3abba8" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <text x="345" y="355" fill="#9b7af0" font-family="Caveat" font-size="15">Claude Desktop app</text>
+      <text x="345" y="375" fill="#9b7af0" font-family="Caveat" font-size="15">Plan Pro = 20$/mois</text>
+      <line x1="400" y1="340" x2="400" y2="272" stroke="#9b7af0" stroke-width="1" stroke-dasharray="3,3"/>
+    </svg>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DIAGRAM 3: POST-LAUNCH CYCLE ═══ -->
+<section>
+  <div class="stag">03 — Le cycle post-launch</div>
+  <div class="stitle">Une boucle, pas une ligne droite</div>
+  <p class="sdesc">
+    Après le ship, le travail ne s'arrête pas — c'est un cycle continu. Chaque tour améliore l'app.
+  </p>
+
+  <div class="diagram-container" data-label="boucle post-launch">
+    <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="500" fill="url(#dots)"/>
+
+      <!-- Central cycle circle (invisible, for positioning) -->
+      <!-- Nodes positioned in a circle: 6 nodes at 60° intervals -->
+
+      <!-- Node positions (center 400,250, radius 160) -->
+      <!-- 0°(top): 400,90  60°: 539,170  120°: 539,330  180°: 400,410  240°: 261,330  300°: 261,170 -->
+
+      <!-- Curved arrows between nodes -->
+      <path d="M 445 100 Q 520 110 530 160" stroke="#9b7af0" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+      <path d="M 560 205 Q 580 270 555 320" stroke="#9b7af0" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+      <path d="M 525 365 Q 480 410 420 405" stroke="#9b7af0" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+      <path d="M 365 400 Q 300 390 270 340" stroke="#9b7af0" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+      <path d="M 250 295 Q 230 235 255 185" stroke="#9b7af0" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+      <path d="M 290 150 Q 335 100 380 95" stroke="#9b7af0" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+
+      <!-- Node 1: SHIP (top) -->
+      <rect x="345" y="60" width="110" height="55" rx="10" fill="rgba(58,187,168,0.1)" stroke="#3abba8" stroke-width="2"/>
+      <text x="400" y="84" text-anchor="middle" fill="#3abba8" font-family="JetBrains Mono" font-size="9" font-weight="600">MARTIN</text>
+      <text x="400" y="103" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="13" font-weight="700">App publiée</text>
+
+      <!-- Node 2: Launch Marketing (top-right) -->
+      <rect x="480" y="145" width="130" height="55" rx="10" fill="rgba(155,122,240,0.1)" stroke="#9b7af0" stroke-width="2"/>
+      <text x="545" y="169" text-anchor="middle" fill="#9b7af0" font-family="JetBrains Mono" font-size="9" font-weight="600">SEB + COWORK</text>
+      <text x="545" y="188" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="12" font-weight="700">Launch marketing</text>
+
+      <!-- Node 3: Monitor Reviews (bottom-right) -->
+      <rect x="480" y="305" width="130" height="55" rx="10" fill="rgba(155,122,240,0.1)" stroke="#9b7af0" stroke-width="2"/>
+      <text x="545" y="329" text-anchor="middle" fill="#9b7af0" font-family="JetBrains Mono" font-size="9" font-weight="600">SEB + COWORK</text>
+      <text x="545" y="348" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="12" font-weight="700">Monitor reviews</text>
+
+      <!-- Node 4: Analyze & Adjust (bottom) -->
+      <rect x="340" y="385" width="120" height="55" rx="10" fill="rgba(232,195,58,0.1)" stroke="#e8c33a" stroke-width="2"/>
+      <text x="400" y="409" text-anchor="middle" fill="#e8c33a" font-family="JetBrains Mono" font-size="9" font-weight="600">ENSEMBLE</text>
+      <text x="400" y="428" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="12" font-weight="700">Analyze &amp; decide</text>
+
+      <!-- Node 5: ASO Iteration (bottom-left) -->
+      <rect x="190" y="305" width="130" height="55" rx="10" fill="rgba(155,122,240,0.1)" stroke="#9b7af0" stroke-width="2"/>
+      <text x="255" y="329" text-anchor="middle" fill="#9b7af0" font-family="JetBrains Mono" font-size="9" font-weight="600">SEB + COWORK</text>
+      <text x="255" y="348" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="12" font-weight="700">ASO itératif</text>
+
+      <!-- Node 6: Content & Growth (top-left) -->
+      <rect x="190" y="145" width="130" height="55" rx="10" fill="rgba(155,122,240,0.1)" stroke="#9b7af0" stroke-width="2"/>
+      <text x="255" y="169" text-anchor="middle" fill="#9b7af0" font-family="JetBrains Mono" font-size="9" font-weight="600">SEB + COWORK</text>
+      <text x="255" y="188" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="12" font-weight="700">Contenu &amp; growth</text>
+
+      <!-- Center annotation -->
+      <text x="400" y="240" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="16">le cycle</text>
+      <text x="400" y="262" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="16">ne s'arrête</text>
+      <text x="400" y="284" text-anchor="middle" fill="#7e7e8e" font-family="Caveat" font-size="16">jamais</text>
+
+      <!-- External annotation -->
+      <text x="680" y="260" fill="#3abba8" font-family="Caveat" font-size="13">si update nécessaire →</text>
+      <text x="680" y="278" fill="#3abba8" font-family="Caveat" font-size="13">Martin push une build</text>
+    </svg>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DIAGRAM 4: COWORK MIND MAP ═══ -->
+<section>
+  <div class="stag">04 — Mind map Cowork</div>
+  <div class="stitle">Tout ce que Cowork peut faire pour toi</div>
+  <p class="sdesc">Chaque branche = une catégorie de tâches que tu peux déléguer à Cowork.</p>
+
+  <div class="diagram-container" data-label="mind map">
+    <svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+      <rect width="800" height="550" fill="url(#dots)"/>
+
+      <!-- CENTER NODE -->
+      <circle cx="400" cy="275" r="50" fill="rgba(155,122,240,0.12)" stroke="#9b7af0" stroke-width="2.5"/>
+      <text x="400" y="270" text-anchor="middle" fill="#9b7af0" font-family="Outfit" font-size="16" font-weight="800">Cowork</text>
+      <text x="400" y="290" text-anchor="middle" fill="#e4e2df" font-family="Outfit" font-size="10">pour Seb</text>
+
+      <!-- BRANCH 1: ASO (top-left) -->
+      <line x1="360" y1="240" x2="180" y2="120" stroke="#e8773a" stroke-width="1.5"/>
+      <circle cx="180" cy="120" r="4" fill="#e8773a"/>
+      <rect x="70" y="55" width="180" height="90" rx="10" fill="rgba(232,119,58,0.06)" stroke="#e8773a" stroke-width="1"/>
+      <text x="160" y="80" text-anchor="middle" fill="#e8773a" font-family="Outfit" font-size="14" font-weight="700">ASO</text>
+      <text x="160" y="98" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Keywords optimisés</text>
+      <text x="160" y="113" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Descriptions A/B test</text>
+      <text x="160" y="128" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Analyse positions Astro</text>
+
+      <!-- BRANCH 2: Content (top-right) -->
+      <line x1="440" y1="240" x2="620" y2="100" stroke="#3ad4a0" stroke-width="1.5"/>
+      <circle cx="620" cy="100" r="4" fill="#3ad4a0"/>
+      <rect x="530" y="40" width="180" height="90" rx="10" fill="rgba(58,212,160,0.06)" stroke="#3ad4a0" stroke-width="1"/>
+      <text x="620" y="65" text-anchor="middle" fill="#3ad4a0" font-family="Outfit" font-size="14" font-weight="700">Contenu</text>
+      <text x="620" y="83" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Posts X / Reddit / LinkedIn</text>
+      <text x="620" y="98" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Content calendar</text>
+      <text x="620" y="113" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Email sequences</text>
+
+      <!-- BRANCH 3: Reviews (right) -->
+      <line x1="450" y1="275" x2="620" y2="275" stroke="#3a8be8" stroke-width="1.5"/>
+      <circle cx="620" cy="275" r="4" fill="#3a8be8"/>
+      <rect x="540" y="235" width="180" height="80" rx="10" fill="rgba(58,139,232,0.06)" stroke="#3a8be8" stroke-width="1"/>
+      <text x="630" y="260" text-anchor="middle" fill="#3a8be8" font-family="Outfit" font-size="14" font-weight="700">Reviews</text>
+      <text x="630" y="278" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Monitoring App Store</text>
+      <text x="630" y="293" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Réponses aux avis</text>
+      <text x="630" y="308" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Résumé tendances</text>
+
+      <!-- BRANCH 4: Competition (bottom-right) -->
+      <line x1="435" y1="310" x2="590" y2="430" stroke="#e8c33a" stroke-width="1.5"/>
+      <circle cx="590" cy="430" r="4" fill="#e8c33a"/>
+      <rect x="500" y="395" width="180" height="75" rx="10" fill="rgba(232,195,58,0.06)" stroke="#e8c33a" stroke-width="1"/>
+      <text x="590" y="420" text-anchor="middle" fill="#e8c33a" font-family="Outfit" font-size="14" font-weight="700">Compétition</text>
+      <text x="590" y="438" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Analyse compétiteurs</text>
+      <text x="590" y="453" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Tableau comparatif</text>
+
+      <!-- BRANCH 5: Launch (bottom-left) -->
+      <line x1="365" y1="315" x2="210" y2="430" stroke="#e84057" stroke-width="1.5"/>
+      <circle cx="210" cy="430" r="4" fill="#e84057"/>
+      <rect x="115" y="395" width="180" height="75" rx="10" fill="rgba(232,64,87,0.06)" stroke="#e84057" stroke-width="1"/>
+      <text x="205" y="420" text-anchor="middle" fill="#e84057" font-family="Outfit" font-size="14" font-weight="700">Launch</text>
+      <text x="205" y="438" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Kit de lancement complet</text>
+      <text x="205" y="453" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Product Hunt post</text>
+
+      <!-- BRANCH 6: Validation (left) -->
+      <line x1="350" y1="275" x2="200" y2="275" stroke="#e8773a" stroke-width="1.5"/>
+      <circle cx="200" cy="275" r="4" fill="#e8773a"/>
+      <rect x="70" y="238" width="180" height="75" rx="10" fill="rgba(232,119,58,0.06)" stroke="#e8773a" stroke-width="1"/>
+      <text x="160" y="263" text-anchor="middle" fill="#e8773a" font-family="Outfit" font-size="14" font-weight="700">Validation</text>
+      <text x="160" y="281" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Structurer résultats AppValidator</text>
+      <text x="160" y="296" text-anchor="middle" fill="#7e7e8e" font-family="Outfit" font-size="10">Rapports Go/Kill</text>
+
+      <!-- Handwritten notes -->
+      <text x="400" y="520" text-anchor="middle" fill="#555568" font-family="Caveat" font-size="14">chaque branche = des prompts prêts à utiliser (voir section 06)</text>
+    </svg>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PIPELINE DETAILED ═══ -->
+<section>
+  <div class="stag">05 — Pipeline détaillé</div>
+  <div class="stitle">Chaque étape, étape par étape</div>
+  <p class="sdesc">Le même pipeline que le diagramme ci-dessus, mais avec les détails.</p>
 
   <div class="legend">
     <div class="legend-item"><div class="legend-dot seb"></div> Seb</div>
@@ -561,161 +661,134 @@
   </div>
 
   <div class="pipeline-track">
-
     <div class="p-node seb">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who seb">Seb</span>
         <h4>Découverte de niche</h4>
-        <p>Tu explores les keywords et niches dans <span class="p-tool">Astro</span> — popularité, difficulté, compétition. Tu identifies les opportunités où la demande est là mais l'offre est médiocre.</p>
+        <p>Tu explores les keywords et niches dans <span class="p-tool">Astro</span> — popularité, difficulté, compétition.</p>
       </div>
     </div>
-
     <div class="p-node both">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who both">Ensemble</span>
         <h4>Validation de l'idée</h4>
-        <p>Tu roules l'idée dans <span class="p-tool">AppValidator</span> (notre app iOS). Les résultats sont partagés par email/WhatsApp. On discute et on décide : Go ou Kill.</p>
+        <p>Tu roules l'idée dans <span class="p-tool">AppValidator</span>. Résultats partagés par email/WhatsApp. On décide : Go ou Kill.</p>
       </div>
     </div>
-
     <div class="p-node auto">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who auto">Automatisé</span>
         <h4>Cross-validation technique</h4>
-        <p>Les skills Claude Code de Martin font le débat automatisé — <span class="p-tool">persona-stress-test</span>, <span class="p-tool">persona-debate</span>, <span class="p-tool">product-discovery</span>. Ça confronte l'idée sous plusieurs angles avant d'investir du temps de dev.</p>
+        <p>Skills Claude Code : <span class="p-tool">persona-stress-test</span>, <span class="p-tool">persona-debate</span>, <span class="p-tool">product-discovery</span>.</p>
       </div>
     </div>
-
     <div class="p-node martin">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who martin">Martin</span>
         <h4>Développement</h4>
-        <p>Vibe coding dans <span class="p-tool">Xcode 26.3 + Claude Agent</span>. Build du MVP, tests, itérations. Tu reçois les builds TestFlight pour tester.</p>
+        <p>Vibe coding dans <span class="p-tool">Xcode 26.3 + Claude Agent</span>. Builds TestFlight pour tester.</p>
       </div>
     </div>
-
     <div class="p-node both">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who both">Ensemble</span>
         <h4>Beta testing</h4>
-        <p>Tu testes via TestFlight, tu donnes ton feedback par WhatsApp. Martin intègre tes retours. Minimum 2 cycles avant de soumettre.</p>
+        <p>Tu testes via TestFlight, feedback par WhatsApp. Minimum 2 cycles.</p>
       </div>
     </div>
-
     <div class="p-node auto">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who auto">Automatisé</span>
         <h4>Préparation App Store</h4>
-        <p>Le skill <span class="p-tool">/app-store-submit</span> fait le gros du travail : audit, metadata, descriptions FR/EN, keywords ASO, screenshots, build Release, packaging complet.</p>
+        <p>Skill <span class="p-tool">/app-store-submit</span> — metadata, descriptions FR/EN, keywords, screenshots, build, packaging.</p>
       </div>
     </div>
-
     <div class="p-node auto">
       <div class="p-dot"></div>
       <div class="p-card">
         <span class="p-who auto">Automatisé</span>
         <h4>Deploy</h4>
-        <p>Le skill <span class="p-tool">/deploy</span> prend le package et le push vers l'App Store via <span class="p-tool">fastlane</span>. Une commande = c'est live.</p>
+        <p>Skill <span class="p-tool">/deploy</span> via <span class="p-tool">fastlane</span> → App Store.</p>
       </div>
     </div>
-
-    <!-- THE GAP -->
     <div class="p-node gap">
       <div class="p-dot"></div>
       <div class="p-card">
-        <span class="p-who gap">??? — rien</span>
+        <span class="p-who gap">Le trou</span> <span class="p-who cowork">→ Cowork</span>
         <h4>Post-launch marketing</h4>
-        <p>L'app est live. Et après? Personne s'occupe de l'ASO itératif, du content marketing, du suivi des reviews, des ajustements, de la croissance. C'est ici que Cowork entre en jeu — et c'est ton territoire.</p>
+        <p>C'est ici que Cowork entre en jeu. ASO itératif, contenu, reviews, compétition, growth — ton territoire.</p>
       </div>
     </div>
-
   </div>
 
   <div class="gap-callout">
     <h3>Le pipeline s'arrête à la publication</h3>
-    <p>On a automatisé de l'idée au deploy. Mais une app sans marketing post-launch, c'est comme ouvrir un restaurant sans mettre d'enseigne dehors.</p>
+    <p>On a automatisé de l'idée au deploy. Cowork ferme la boucle en donnant à Seb les outils pour le marketing post-launch.</p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ COWORK POST-LAUNCH ═══ -->
+<!-- ═══ POST-LAUNCH TASKS ═══ -->
 <section>
-  <div class="stag">02 — Ton rôle post-launch avec Cowork</div>
-  <div class="stitle">Le marketing après le Ship</div>
-  <p class="sdesc">
-    Voici les tâches concrètes que Cowork peut faire pour toi après qu'une app
-    est publiée. Chaque carte = un prompt que tu peux lancer dans Cowork.
-  </p>
+  <div class="stag">06 — Tes tâches post-launch</div>
+  <div class="stitle">Prompts prêts à utiliser dans Cowork</div>
+  <p class="sdesc">Chaque carte = un prompt que tu copies dans Cowork. Il fait le travail, toi tu valides.</p>
 
   <div class="pl-grid">
-
     <div class="pl-card">
       <div class="pl-when">Semaine 1 — Lancement</div>
-      <h4>Annonces de lancement</h4>
-      <p>Cowork génère tout le contenu de launch : posts X/Twitter, Reddit, LinkedIn, email pour ta liste beta, post Product Hunt si applicable.</p>
-      <div class="prompt-example">
-        "Notre app FreedomTracker vient de sortir sur l'App Store. C'est une app de suivi d'élimination de dettes pour les Canadiens. Crée un kit de lancement : 5 tweets thread, 1 post Reddit pour r/PersonalFinanceCanada, 1 post LinkedIn. Ton authentique, pas corporate. Sauvegarde dans marketing/launch-kit/"
-      </div>
-      <div class="result">→ Dossier avec tous les textes prêts à poster</div>
+      <h4>Kit de lancement</h4>
+      <p>Posts X, Reddit, LinkedIn, email beta testers. Tout le contenu de launch en un batch.</p>
+      <div class="prompt-example">"Notre app FreedomTracker vient de sortir sur l'App Store. App de suivi de dettes pour Canadiens. Crée : 5 tweets thread, 1 post Reddit r/PersonalFinanceCanada, 1 post LinkedIn. Ton authentique. Sauvegarde dans marketing/launch-kit/"</div>
+      <div class="result">→ Dossier avec tous les textes prêts</div>
     </div>
 
     <div class="pl-card">
-      <div class="pl-when">Semaines 1-4 — ASO itératif</div>
-      <h4>Optimisation App Store continue</h4>
-      <p>Après le launch, l'ASO c'est pas fini — c'est juste le début. Cowork analyse les positions dans Astro (export CSV) et propose des ajustements aux descriptions et keywords.</p>
-      <div class="prompt-example">
-        "Voici l'export CSV d'Astro pour FreedomTracker (dans le dossier astro-exports/). Analyse les positions de nos keywords, identifie ceux qui performent vs ceux qui stagnent. Propose une nouvelle version des keywords (100 chars max) et une description App Store ajustée. Sauvegarde dans marketing/aso-iteration-v2.md"
-      </div>
-      <div class="result">→ Nouvelles descriptions + keywords optimisés</div>
+      <div class="pl-when">Semaines 1-4 — ASO</div>
+      <h4>Optimisation App Store</h4>
+      <p>Analyse tes positions Astro et ajuste descriptions + keywords.</p>
+      <div class="prompt-example">"Voici l'export CSV d'Astro (dans astro-exports/). Analyse nos positions, identifie les keywords qui performent vs stagnent. Nouvelle version des keywords (100 chars) + description ajustée. Sauvegarde dans marketing/aso-v2.md"</div>
+      <div class="result">→ Keywords + descriptions optimisés</div>
     </div>
 
     <div class="pl-card">
-      <div class="pl-when">Continu — Chaque semaine</div>
+      <div class="pl-when">Chaque semaine</div>
       <h4>Content calendar</h4>
-      <p>Un calendrier de contenu alimenté chaque semaine : tips financiers, behind-the-scenes, user stories. Cowork draft, toi tu valides et postes.</p>
-      <div class="prompt-example">
-        "Crée un calendrier de contenu pour les 2 prochaines semaines pour CreditCopilot. Mix de tips sur le crédit au Canada, behind-the-scenes du développement, et questions engageantes. Format spreadsheet. Sauvegarde dans marketing/content-calendar-w3.xlsx"
-      </div>
-      <div class="result">→ Spreadsheet avec dates, plateformes, textes drafts</div>
+      <p>Calendrier de contenu par plateforme, avec textes drafts.</p>
+      <div class="prompt-example">"Content calendar 2 prochaines semaines pour CreditCopilot. Mix tips crédit Canada, behind-the-scenes, questions engageantes. Format spreadsheet. Sauvegarde dans marketing/content-w3.xlsx"</div>
+      <div class="result">→ Spreadsheet dates + plateformes + textes</div>
     </div>
 
     <div class="pl-card">
-      <div class="pl-when">Continu — Bi-mensuel</div>
-      <h4>Monitoring des reviews</h4>
-      <p>Cowork recherche les nouvelles reviews sur l'App Store, les résume, identifie les tendances positives/négatives, et suggère des réponses + améliorations à communiquer à Martin.</p>
-      <div class="prompt-example">
-        "Cherche les reviews récentes de CreditCopilot sur l'App Store canadien et américain. Résume les thèmes positifs et négatifs. Propose des réponses pour les reviews négatives et une liste de bugs/features à remonter à Martin. Rapport dans marketing/reviews-report-feb.md"
-      </div>
-      <div class="result">→ Rapport structuré avec actions à prendre</div>
+      <div class="pl-when">Bi-mensuel</div>
+      <h4>Monitoring reviews</h4>
+      <p>Résumé des reviews, tendances, réponses suggérées, bugs à remonter.</p>
+      <div class="prompt-example">"Cherche les reviews récentes de CreditCopilot sur l'App Store CA et US. Résume positif/négatif. Propose des réponses. Liste bugs/features pour Martin. Rapport dans marketing/reviews-feb.md"</div>
+      <div class="result">→ Rapport avec actions concrètes</div>
     </div>
 
     <div class="pl-card">
       <div class="pl-when">Mensuel</div>
       <h4>Analyse compétitive</h4>
-      <p>Un check mensuel sur ce que la compétition fait : nouvelles features, changements de prix, reviews de leurs users. Ça alimente la stratégie pour les updates.</p>
-      <div class="prompt-example">
-        "Analyse les 5 principaux compétiteurs de FreedomTracker sur l'App Store canadien. Compare : pricing, rating moyen, features récentes, plaintes des users. Crée un tableau comparatif dans marketing/competitive-feb.xlsx"
-      </div>
-      <div class="result">→ Excel comparatif pour décision stratégique</div>
+      <p>Check sur les compétiteurs : features, pricing, reviews.</p>
+      <div class="prompt-example">"Analyse les 5 principaux compétiteurs de FreedomTracker sur l'App Store CA. Compare pricing, rating, features, plaintes. Tableau dans marketing/competitive-feb.xlsx"</div>
+      <div class="result">→ Excel comparatif stratégique</div>
     </div>
 
     <div class="pl-card">
       <div class="pl-when">À chaque update</div>
-      <h4>Release notes user-friendly</h4>
-      <p>Martin push une update, Cowork transforme le changelog technique en release notes que les humains comprennent.</p>
-      <div class="prompt-example">
-        "Lis le fichier CHANGELOG.md dans le dossier projet. Génère des release notes pour la version 1.3 — pas de jargon technique, ton motivant. Ce que les users vont aimer dans cette update. Sauvegarde dans marketing/release-notes-v1.3.md"
-      </div>
-      <div class="result">→ Notes de version prêtes pour App Store Connect</div>
+      <h4>Release notes</h4>
+      <p>Transformer le changelog technique en notes user-friendly.</p>
+      <div class="prompt-example">"Lis CHANGELOG.md. Génère release notes v1.3 — pas de jargon, ton motivant. Ce que les users vont aimer. Sauvegarde dans marketing/release-v1.3.md"</div>
+      <div class="result">→ Notes prêtes pour App Store Connect</div>
     </div>
-
   </div>
 </section>
 
@@ -723,24 +796,25 @@
 
 <!-- ═══ BONUS ═══ -->
 <section>
-  <div class="stag">03 — Bonus</div>
-  <div class="stitle">Structurer les résultats d'AppValidator</div>
+  <div class="stag">07 — Bonus</div>
+  <div class="stitle">Structurer tes résultats AppValidator</div>
   <p class="sdesc">
-    Tu utilises déjà AppValidator pour valider tes idées — Cowork peut aussi t'aider
-    à transformer tes résultats bruts en rapports structurés qu'on peut utiliser pour décider.
+    Au lieu d'envoyer des liens bruts par email, Cowork peut structurer tes résultats
+    de validation en rapports clairs et actionnables.
   </p>
 
   <div class="bonus-box">
-    <h4>Le problème actuel</h4>
-    <p>
-      Tu roules AppValidator, t'obtiens des résultats, et tu m'envoies ça par email comme des liens bruts.
-      C'est du bon travail, mais c'est difficile pour moi de prendre une décision Go/Kill à partir de ça.
-      Cowork peut structurer tout ça automatiquement.
-    </p>
-    <div class="prompt-example">
-      "J'ai les résultats de validation pour une idée d'app appelée [NomApp]. Voici les données brutes [colle ou pointe vers le fichier]. Structure ça en un rapport Go/Kill avec : résumé de l'idée, score de marché, risques identifiés, compétition, effort estimé, et ta recommandation. Sauvegarde dans validations/[nomapp]-report.md"
+    <h4>Avant : liens ChatGPT bruts par email</h4>
+    <p>Dur à lire, pas de format standard, Martin doit fouiller pour comprendre la conclusion.</p>
+  </div>
+
+  <div class="bonus-box" style="border-color: var(--go);">
+    <h4 style="color: var(--go);">Après : rapport structuré via Cowork</h4>
+    <p>Un rapport Go/Kill d'une page que Martin lit en 2 minutes.</p>
+    <div class="prompt-example" style="border-color: var(--go); background: rgba(58,212,160,0.06);">
+      "J'ai les résultats de validation pour [NomApp]. Voici les données [colle le contenu]. Structure en rapport Go/Kill : résumé, score marché, risques, compétition, effort estimé, recommandation. Sauvegarde dans validations/[nomapp]-report.md"
     </div>
-    <div class="result">→ Rapport d'une page, clair, décisionnel — que Martin peut lire en 2 minutes</div>
+    <div class="result">→ Rapport décisionnel, 1 page, format standard</div>
   </div>
 </section>
 
@@ -748,21 +822,18 @@
 
 <!-- ═══ C'EST QUOI COWORK ═══ -->
 <section>
-  <div class="stag">04 — C'est quoi Cowork</div>
+  <div class="stag">08 — C'est quoi Cowork</div>
   <div class="stitle">En 30 secondes</div>
-  <p class="sdesc">
-    Cowork c'est Claude qui travaille directement sur ton ordi. Pas un chat —
-    un assistant qui lit, crée et modifie tes fichiers.
-  </p>
+  <p class="sdesc">Claude qui travaille sur ton ordi. Pas un chat — un assistant qui agit sur tes fichiers.</p>
 
   <div class="pl-grid">
     <div class="pl-card" style="border-color: var(--go);">
       <h4 style="color: var(--go);">Ce que Cowork fait</h4>
-      <p>Tu lui donnes accès à un dossier sur ton Mac. Tu décris ce que tu veux. Il fait un plan, te le montre, et exécute. Il crée des documents, des spreadsheets, fait de la recherche web, génère du contenu — directement dans tes fichiers.</p>
+      <p>Tu lui donnes accès à un dossier sur ton Mac. Tu décris ce que tu veux. Il fait un plan, te le montre, et exécute. Documents, spreadsheets, recherche web, contenu — directement dans tes fichiers.</p>
     </div>
     <div class="pl-card" style="border-color: var(--gap);">
       <h4 style="color: var(--gap);">Ce que Cowork n'est pas</h4>
-      <p>C'est pas un chatbot où tu copies-colles. C'est pas un outil de code (ça c'est le côté de Martin). C'est pour le travail de contenu, d'analyse, d'organisation — exactement ton rôle dans l'équipe.</p>
+      <p>C'est pas un chatbot copier-coller. C'est pas un outil de code (ça c'est Martin). C'est pour le contenu, l'analyse, l'organisation — ton rôle dans l'équipe.</p>
     </div>
   </div>
 </section>
@@ -771,45 +842,30 @@
 
 <!-- ═══ SETUP ═══ -->
 <section>
-  <div class="stag">05 — Setup</div>
+  <div class="stag">09 — Setup</div>
   <div class="stitle">5 minutes pour partir</div>
-  <p class="sdesc">T'as déjà le plan Pro. Cowork est inclus.</p>
+  <p class="sdesc">T'as déjà le plan Pro. Cowork est inclus. Zéro coût additionnel.</p>
 
   <div class="setup-steps">
     <div class="s-step">
       <div class="s-num">1</div>
-      <div>
-        <h4>Télécharge Claude Desktop</h4>
-        <p>Va sur <code>claude.ai/download</code> — l'app macOS (pas la version web).</p>
-      </div>
+      <div><h4>Télécharge Claude Desktop</h4><p><code>claude.ai/download</code> — l'app macOS.</p></div>
     </div>
     <div class="s-step">
       <div class="s-num">2</div>
-      <div>
-        <h4>Connecte-toi avec ton compte Pro</h4>
-        <p>Même compte, Cowork est déjà inclus.</p>
-      </div>
+      <div><h4>Connecte-toi avec ton compte Pro</h4><p>Même compte. Cowork est déjà inclus.</p></div>
     </div>
     <div class="s-step">
       <div class="s-num">3</div>
-      <div>
-        <h4>Clique sur "Cowork"</h4>
-        <p>En haut de l'app : <code>Chat</code> et <code>Cowork</code>. Bascule en mode Tasks.</p>
-      </div>
+      <div><h4>Clique sur "Cowork"</h4><p>En haut de l'app : <code>Chat</code> → <code>Cowork</code>. Mode Tasks.</p></div>
     </div>
     <div class="s-step">
       <div class="s-num">4</div>
-      <div>
-        <h4>Pointe vers ton dossier marketing</h4>
-        <p>Crée un dossier <code>AppFactory/marketing/</code> sur ton Mac. Cowork va y travailler.</p>
-      </div>
+      <div><h4>Crée un dossier marketing</h4><p><code>AppFactory/marketing/</code> sur ton Mac. Cowork y travaille.</p></div>
     </div>
     <div class="s-step">
       <div class="s-num">5</div>
-      <div>
-        <h4>Copie un prompt de la section 02 et go</h4>
-        <p>Commence par le plus simple — un content calendar ou une analyse compétitive.</p>
-      </div>
+      <div><h4>Copie un prompt de la section 06 et go</h4><p>Commence simple : un content calendar ou une analyse compétitive.</p></div>
     </div>
   </div>
 
@@ -817,13 +873,10 @@
     <div class="price">20$<span> /mois</span></div>
     <div class="price-text">
       <h4>Ton plan Pro inclut déjà Cowork</h4>
-      <p>Zéro coût additionnel. Mêmes features que le plan Max de Martin, juste avec des limites d'usage plus basses.</p>
+      <p>Mêmes features que le plan Max de Martin, limites d'usage plus basses. Pour du marketing, c'est en masse.</p>
     </div>
   </div>
-
-  <div class="caveat">
-    Cowork consomme plus de quota que le chat normal. Regroupe tes tâches par batch au lieu de lancer plein de petites sessions.
-  </div>
+  <div class="caveat">Cowork consomme plus de quota que le chat. Regroupe tes tâches par batch.</div>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
